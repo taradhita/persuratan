@@ -104,7 +104,7 @@
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="../assets/img/profile.jpg" alt="user-img" width="36" class="img-circle"><span >{{Auth::user()->username}}</span></span> </a>
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="../assets/img/profile.jpg" alt="user-img" width="36" class="img-circle"><span>{{Auth::user()->username}}</span></span> </a>
 							<ul class="dropdown-menu dropdown-user">
 								<li>
 									<div class="user-box">
@@ -150,7 +150,7 @@
 							<div class="collapse in" id="collapseExample" aria-expanded="true" style="">
 								<ul class="nav">
 									<li>
-										<a href="/admin/edit-profil">
+										<a href="{{route('admin.edit',  Auth::user()->id)}}">
 											<span class="link-collapse">Edit Profil</span>
 										</a>
 									</li>
@@ -170,10 +170,9 @@
 					</div>
 					<ul class="nav">
 						<li class="nav-item {{ $activeMenu == 'admin.home' ? 'active' : '' }}">
-							<a href="/admin/home">
+							<a href="/admin">
 								<i class="la la-dashboard"></i>
 								<p>Dashboard</p>
-								<span class="badge badge-count">5</span>
 							</a>
 						</li>
 						<li class="nav-item {{ $activeMenu == 'admin.surat-masuk' ? 'active' : '' }}">

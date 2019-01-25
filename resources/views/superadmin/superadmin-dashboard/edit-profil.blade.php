@@ -1,4 +1,4 @@
-@extends('layouts.superadmin-layout')
+@extends('layouts.superadmin-layout',['activeMenu' => ''])
 @section('content')
 						<h4 class="page-title">Edit Profil</h4>
 						<div class="row">
@@ -8,15 +8,16 @@
 										<h4 class="card-title">Edit Profil</h4>
 									</div>
 									<div class="card-body">
-										<form method="POST">
+										<form method="POST" action="/superadmin/{{$superadmin->id}}">
 											@csrf
+											{{method_field("PUT")}}
 											<div class="form-group">
 												<label for="username">Username</label>
-												<input type="text" class="form-control" id="username" placeholder="Username">
+												<input type="text" class="form-control"  id="username" name="username" value="{{$superadmin->username}}">
 											</div>
 											<div class="form-group">
 												<label for="password">Password</label>
-												<input type="password" class="form-control" id="password" placeholder="Password">
+												<input type="password" class="form-control" id="password" name="password" placeholder="Password">
 											</div>
 											<div class="card-action">
 												<button class="btn btn-success">Submit</button>

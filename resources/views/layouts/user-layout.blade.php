@@ -150,7 +150,7 @@
 							<div class="collapse in" id="collapseExample" aria-expanded="true" style="">
 								<ul class="nav">
 									<li>
-										<a href="#edit">
+										<a href="{{route('user.edit',  Auth::user()->id)}}">
 											<span class="link-collapse">Edit Profil</span>
 										</a>
 									</li>

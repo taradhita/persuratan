@@ -43,6 +43,9 @@ Route::get('/admin/arsip', function () {
     return view('admin/admin-dashboard/admin-arsip');
 })->middleware('auth:admin');
 
+Route::get('admin/{admin}/edit',  ['as' => 'admin.edit', 'uses' => 'UpdateAdminController@edit'])->middleware('auth:admin');
+Route::put('admin/{admin}',  ['as' => 'admin.update', 'uses' => 'UpdateAdminController@update']);
+
 //yang ini khusus test user dashboard view, nanti route diganti!!!!!
 Route::get('/user', function () {
     return view('user-dashboard/user-home');
@@ -55,9 +58,16 @@ Route::get('/user/surat-masuk', function () {
     return view('user-dashboard/user-surat-masuk');
 })->middleware('auth');
 
+Route::get('user/{user}/edit',  ['as' => 'user.edit', 'uses' => 'UpdateUserController@edit'])->middleware('auth');
+Route::put('user/{user}',  ['as' => 'user.update', 'uses' => 'UpdateUserController@update']);
+
+
 Route::get('/superadmin', function () {
     return view('superadmin/superadmin-dashboard/superadmin-home');
 })->name('superadmin')->middleware('auth:superadmin');
+
+Route::get('superadmin/{superadmin}/edit',  ['as' => 'superadmin.edit', 'uses' => 'UpdateSuperadminController@edit'])->middleware('auth:superadmin');
+Route::put('superadmin/{superadmin}',  ['as' => 'superadmin.update', 'uses' => 'UpdateSuperadminController@update']);
 
 //SUPERADMIN ROUTE
 Route::group(['prefix' => 'superadmin'], function() {
