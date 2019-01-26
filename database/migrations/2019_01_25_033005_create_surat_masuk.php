@@ -17,11 +17,12 @@ class CreateSuratMasuk extends Migration
             $table->increments('id');
             $table->string('no_surat');
             $table->date('tanggal');
-            $table->string('tujuan');
+            $table->integer('tujuan')->unsigned();
+            $table->foreign('tujuan')->references('id')->on('users');
             $table->string('asal_surat');
-            $table->string('lampiran');
+            $table->string('perihal');
             $table->string('file_surat');
-            $table->string('status');
+            $table->enum('status',['Pending','Diterima','Ditolak'])->default('Pending');
             $table->timestamps();
         });
     }

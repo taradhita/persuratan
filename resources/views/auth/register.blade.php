@@ -21,6 +21,15 @@
                     <form class="form-signin" method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="form-label-group">
+                            <input type="text" id="nama_seksi" class="form-control{{ $errors->has('nama_seksi') ? ' is-invalid' : '' }}" name="nama_seksi" value="{{ old('nama_seksi') }}" placeholder="Nama Seksi" required autofocus>
+                            @if ($errors->has('nama_seksi'))
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $errors->first('nama_seksi') }}</strong>
+                                    </span>
+                            @endif
+                            <label for="nama_seksi">Nama Seksi</label>
+                        </div>
+                        <div class="form-label-group">
                             <input type="text" id="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" placeholder="Username" required autofocus>
                             @if ($errors->has('username'))
                                     <span class="invalid-feedback d-block" role="alert">

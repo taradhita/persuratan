@@ -36,9 +36,9 @@ Route::get('/admin', function () {
     return view('admin/admin-dashboard/admin-home');
 })->name('admin')->middleware('auth:admin');
 
-Route::get('/admin/surat-masuk', function () {
-    return view('admin/admin-dashboard/admin-surat-masuk');
-})->middleware('auth:admin');
+Route::resource('/admin/surat-masuk', 'SuratMasukController')->middleware('auth:admin');
+
+
 Route::get('/admin/arsip', function () {
     return view('admin/admin-dashboard/admin-arsip');
 })->middleware('auth:admin');

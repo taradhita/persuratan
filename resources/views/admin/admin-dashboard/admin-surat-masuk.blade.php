@@ -9,7 +9,7 @@
 									</div>
 									<div class="card-body">
 										<p class="demo">
-											<button class="btn btn-primary">Upload Surat</button>
+											<a href="/admin/surat-masuk/create" class="btn btn-primary">Upload Surat</a>
 											<div class="table-responsive">
 											<table class="table table-bordered">
 												<thead>
@@ -19,7 +19,7 @@
 														<th>Tanggal</th>
 														<th>Tujuan</th>
 														<th>Asal Surat</th>
-														<th>Lampiran</th>
+														<th>Perihal</th>
 														<th>Status</th>
 														<th>File Surat</th>
 														<th>Aksi</th>			

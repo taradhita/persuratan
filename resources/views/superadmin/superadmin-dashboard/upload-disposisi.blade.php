@@ -21,7 +21,7 @@
 											</div>
 											<div class="form-group">
 												<label for="tujuan_surat">Tujuan Disposisi</label>
-												<input type="text" class="form-control" id="tujuan_disposisi" placeholder="Tujuan Surat">
+												<input type="text" class="form-control" id="tujuan_disposisi" placeholder="Tujuan Disposisi">
 											</div>
 											<div class="form-group">
 												<label for="upload_surat">File Disposi</label><br/>
