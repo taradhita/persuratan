@@ -27,7 +27,7 @@ class DisposisiRequest extends FormRequest
             'no_disposisi' => 'required',
             'tanggal_disposisi' => 'required|date',
             'tujuan_disposisi' => 'required',
-            'file_disposisi' => 'required|mimes:jpeg,png,pdf',
+            'file_disposisi' => 'required',
             'note' => 'required'
         ];
     }

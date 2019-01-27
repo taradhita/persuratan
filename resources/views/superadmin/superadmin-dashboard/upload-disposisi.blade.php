@@ -9,11 +9,12 @@
                     <p class="card-category"></p>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('disposisi.store')}}" method="post">
+                    <form action="{{route('disposisi.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="no_surat">No Disposisi</label>
-                            <input type="text" class="form-control{{ $errors->has('no_disposisi') ? ' is-invalid' : '' }}"
+                            <input type="text"
+                                   class="form-control{{ $errors->has('no_disposisi') ? ' is-invalid' : '' }}"
                                    name="no_disposisi" placeholder="No Disposisi">
                             @if($errors->has('no_disposisi'))
                                 <span class="invalid-feedback d-block" role="alert">
@@ -23,7 +24,9 @@
                         </div>
                         <div class="form-group">
                             <label for="tanggal">Tanggal Disposisi</label>
-                            <input type="date" class="form-control{{ $errors->has('tanggal_disposisi') ? ' is-invalid' : '' }}" name="tanggal_disposisi" placeholder="Tanggal">
+                            <input type="date"
+                                   class="form-control{{ $errors->has('tanggal_disposisi') ? ' is-invalid' : '' }}"
+                                   name="tanggal_disposisi" placeholder="Tanggal">
                             @if($errors->has('tanggal_disposisi'))
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $errors->first('tanggal_disposisi')}}</strong>
@@ -32,8 +35,14 @@
                         </div>
                         <div class="form-group">
                             <label for="tujuan_surat">Tujuan Disposisi</label>
-                            <input type="text" class="form-control{{ $errors->has('tujuan_disposisi') ? ' is-invalid' : '' }}" name="tujuan_disposisi"
-                                   placeholder="Tujuan Disposisi">
+                            <select class="custom-select my-1 mr-sm-2 {{ $errors->has('tujuan_disposisi') ? ' is-invalid' : '' }}"
+                                    name="tujuan_disposisi">
+                                <option selected value="" disabled>Tujuan Disposisi</option>
+                                @foreach($users as $user)
+                                    <option value="{{$user->id}}">{{$user->nama_seksi}}</option>
+                                @endforeach
+                            </select>
+
                             @if($errors->has('tujuan_disposisi'))
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $errors->first('tujuan_disposisi')}}</strong>
@@ -53,7 +62,8 @@
                         </div>
                         <div class="form-group">
                             <label for="tanggal">Note</label>
-                            <textarea class="form-control{{ $errors->has('note') ? ' is-invalid' : '' }}" name="note" rows="5" title=""></textarea>
+                            <textarea class="form-control{{ $errors->has('note') ? ' is-invalid' : '' }}" name="note"
+                                      rows="5" title=""></textarea>
                             @if($errors->has('note'))
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $errors->first('note')}}</strong>
