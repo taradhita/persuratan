@@ -1,4 +1,4 @@
-@extends('layouts.superadmin-layout')
+@extends('layouts.superadmin-layout',['activeMenu' => 'superadmin.surat-masuk'])
 @section('content')
 						<h4 class="page-title">Component</h4>
 						<div class="row">

@@ -12,4 +12,8 @@ class ApproveSuratController extends Controller
     	$suratmasuk = SuratMasuk::where('status','pending')->orderBy('id', 'desc')->get();
     	return view('superadmin.superadmin-dashboard.superadmin-surat-masuk',compact('suratmasuk'));
     }
+
+    public function edit(){
+    	
+    }
 }

@@ -14,7 +14,7 @@
 	<div class="wrapper">
 		<div class="main-header">
 			<div class="logo-header">
-				<a href="index.html" class="logo">
+				<a href="/superadmin" class="logo">
 					Dashboard
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,16 +25,6 @@
 			<nav class="navbar navbar-header navbar-expand-lg">
 				<div class="container-fluid">
 					
-					<form class="navbar-left navbar-form nav-search mr-md-3" action="">
-						<div class="input-group">
-							<input type="text" placeholder="Search ..." class="form-control">
-							<div class="input-group-append">
-								<span class="input-group-text">
-									<i class="la la-search search-icon"></i>
-								</span>
-							</div>
-						</div>
-					</form>
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						<li class="nav-item dropdown hidden-caret">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -78,7 +68,7 @@
 										</a>
 										<a href="#">
 											<div class="notif-img"> 
-												<img src="../assets/img/profile2.jpg" alt="Img Profile">
+												<img src="/images/icons/user_icon.png" alt="Img Profile">
 											</div>
 											<div class="notif-content">
 												<span class="block">
@@ -104,18 +94,25 @@
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="../assets/img/profile.jpg" alt="user-img" width="36" class="img-circle"><span >Hizrian</span></span> </a>
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="/images/icons/user_icon.png" alt="user-img" width="36" class="img-circle"><span >{{Auth::user()->username}}</span></span> </a>
 							<ul class="dropdown-menu dropdown-user">
 								<li>
 									<div class="user-box">
-										<div class="u-img"><img src="../assets/img/profile.jpg" alt="user"></div>
+										<div class="u-img"><img src="/images/icons/user_icon.png" alt="user"></div>
 										<div class="u-text">
-											<h4>Hizrian</h4>
-											<p class="text-muted">hello@themekita.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+											<h4>{{Auth::user()->username}}</h4>
+											
 										</div>
 									</li>						
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#"><i class="fa fa-power-off"></i> Logout</a>
+									<a class="dropdown-item" href="{{ url('/logout') }}" 
+         								onclick="event.preventDefault();
+         								document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
+          								Logout
+    								</a>
+									<form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+            							@csrf
+        							</form>
 								</ul>
 								<!-- /.dropdown-user -->
 							</li>
@@ -127,13 +124,13 @@
 				<div class="scrollbar-inner sidebar-wrapper">
 					<div class="user">
 						<div class="photo">
-							<img src="../assets/img/profile.jpg">
+							<img src="/images/icons/user_icon.png">
 						</div>
 						<div class="info">
 							<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Hizrian
-									<span class="user-level">Administrator</span>
+									{{Auth::user()->username}}
+									<span class="user-level">Kepala Kantor</span>
 									<span class="caret"></span>
 								</span>
 							</a>
@@ -142,8 +139,8 @@
 							<div class="collapse in" id="collapseExample" aria-expanded="true" style="">
 								<ul class="nav">
 									<li>
-										<a href="#edit">
-											<span class="link-collapse">Ganti Password</span>
+										<a href="{{route('superadmin.edit',  Auth::user()->id)}}">
+											<span class="link-collapse">Edit Profil</span>
 										</a>
 									</li>
 								</ul>
@@ -151,31 +148,23 @@
 						</div>
 					</div>
 					<ul class="nav">
-						<li class="nav-item">
-							<a href="index.html">
+						<li class="nav-item {{ $activeMenu == 'superadmin.home' ? 'active' : '' }}">
+							<a href="/superadmin">
 								<i class="la la-dashboard"></i>
 								<p>Dashboard</p>
-								<span class="badge badge-count">5</span>
 							</a>
 						</li>
-						<li class="nav-item active">
-							<a href="components.html">
+						<li class="nav-item {{ $activeMenu == 'superadmin.surat-masuk' ? 'active' : '' }}">
+							<a href="/superadmin/surat-masuk">
 								<i class="la la-table"></i>
 								<p>Surat Masuk</p>
 								<span class="badge badge-count">14</span>
 							</a>
 						</li>
-						<li class="nav-item active">
-							<a href="components.html">
-								<i class="la la-table"></i>
-								<p>Surat Keluar</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="forms.html">
+						<li class="nav-item {{ $activeMenu == 'superadmin.disposisi' ? 'active' : '' }}">
+							<a href="/superadmin/disposisi">
 								<i class="la la-keyboard-o"></i>
-								<p>Arsip Surat</p>
-								<span class="badge badge-count">50</span>
+								<p>Disposisi</p>
 							</a>
 						</li>
 					</ul>

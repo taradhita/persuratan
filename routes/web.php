@@ -50,7 +50,9 @@ Route::get('/user', function () {
     return view('user-dashboard/user-home');
 })->name('user.home')->middleware('auth');
 
-Route::get('/user/surat-keluar', 'ApproveSuratController@index')->middleware('auth');
+Route::get('/user/surat-keluar', function () {
+    return view('user-dashboard/user-surat-keluar');
+})->middleware('auth');
 Route::get('/user/surat-masuk', function () {
     return view('user-dashboard/user-surat-masuk');
 })->middleware('auth');
@@ -62,6 +64,8 @@ Route::put('user/{user}',  ['as' => 'user.update', 'uses' => 'UpdateUserControll
 Route::get('/superadmin', function () {
     return view('superadmin/superadmin-dashboard/superadmin-home');
 })->name('superadmin')->middleware('auth:superadmin');
+Route::get('/superadmin/surat-masuk','ApproveSuratController@index')->middleware('auth:superadmin');
+//Route::get('/superadmin/disposisi');
 
 Route::get('superadmin/{superadmin}/edit',  ['as' => 'superadmin.edit', 'uses' => 'UpdateSuperadminController@edit'])->middleware('auth:superadmin');
 Route::put('superadmin/{superadmin}',  ['as' => 'superadmin.update', 'uses' => 'UpdateSuperadminController@update']);
