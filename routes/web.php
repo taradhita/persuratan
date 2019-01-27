@@ -26,11 +26,10 @@ Route::group(['prefix' => 'admin'], function() {
 // Registration Routes...
     Route::get('register', ['as' => 'admin.register', 'uses' => 'AdminAuth\RegisterController@showRegistrationForm']);
     Route::post('register', ['as' => 'admin.register.post', 'uses' => 'AdminAuth\RegisterController@register']);
-
 });
 
 
-//yang ini khusus test admin dashboard view, nanti route diganti!!!!!
+//yang ini khusus test admin dashboard view
 
 Route::get('/admin', function () {
     return view('admin/admin-dashboard/admin-home');
@@ -51,9 +50,7 @@ Route::get('/user', function () {
     return view('user-dashboard/user-home');
 })->name('user.home')->middleware('auth');
 
-Route::get('/user/surat-keluar', function () {
-    return view('user-dashboard/user-surat-keluar');
-})->middleware('auth');
+Route::get('/user/surat-keluar', 'ApproveSuratController@index')->middleware('auth');
 Route::get('/user/surat-masuk', function () {
     return view('user-dashboard/user-surat-masuk');
 })->middleware('auth');
