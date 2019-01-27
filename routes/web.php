@@ -88,3 +88,5 @@ Route::group(['prefix' => 'superadmin'], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('disposisi','DisposisiController')->middleware('auth:superadmin');

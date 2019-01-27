@@ -162,7 +162,7 @@
 							</a>
 						</li>
 						<li class="nav-item {{ $activeMenu == 'superadmin.disposisi' ? 'active' : '' }}">
-							<a href="/superadmin/disposisi">
+							<a href="{{route('disposisi.index')}}">
 								<i class="la la-keyboard-o"></i>
 								<p>Disposisi</p>
 							</a>
