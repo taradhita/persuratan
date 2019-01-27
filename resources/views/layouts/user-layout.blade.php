@@ -25,16 +25,7 @@
 			<nav class="navbar navbar-header navbar-expand-lg">
 				<div class="container-fluid">
 					
-					<form class="navbar-left navbar-form nav-search mr-md-3" action="">
-						<div class="input-group">
-							<input type="text" placeholder="Search ..." class="form-control">
-							<div class="input-group-append">
-								<span class="input-group-text">
-									<i class="la la-search search-icon"></i>
-								</span>
-							</div>
-						</div>
-					</form>
+					
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						<li class="nav-item dropdown hidden-caret">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -104,11 +95,11 @@
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="../assets/img/profile.jpg" alt="user-img" width="36" class="img-circle"><span >{{Auth::user()->username}}</span></span> </a>
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="/images/icons/user_icon.png" alt="user-img" width="36" class="img-circle"><span >{{Auth::user()->username}}</span></span> </a>
 							<ul class="dropdown-menu dropdown-user">
 								<li>
 									<div class="user-box">
-										<div class="u-img"><img src="../assets/img/profile.jpg" alt="user"></div>
+										<div class="u-img"><img src="/images/icons/user_icon.png" alt="user"></div>
 										<div class="u-text">
 											<h4>{{Auth::user()->username}}</h4>
 											<!--<p class="text-muted">hello@themekita.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>-->
@@ -193,25 +184,7 @@
 			</div>
 		</div>
 	</div>
-<!-- Modal -->
-	<div class="modal fade" id="modalView" tabindex="-1" role="dialog" aria-labelledby="modalUpdatePro" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header bg-primary">
-					<h6 class="modal-title">File Surat</h6>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body text-center">									
-					
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
+
 </body>
 <script src="{{ asset('js/core/jquery.3.2.1.min.js') }}"></script>
 <script src="{{ asset('js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>

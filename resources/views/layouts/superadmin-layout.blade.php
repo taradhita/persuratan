@@ -110,7 +110,7 @@
          								document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
           								Logout
     								</a>
-									<form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+									<form id="logout-form" action="{{ route('superadmin.logout') }}" method="POST" style="display: none;">
             							@csrf
         							</form>
 								</ul>
@@ -179,25 +179,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="modalView" tabindex="-1" role="dialog" aria-labelledby="modalUpdatePro" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header bg-primary">
-					<h6 class="modal-title">File Surat</h6>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body text-center">									
-					
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
+
 </body>
 <script src="{{ asset('js/core/jquery.3.2.1.min.js') }}"></script>
 <script src="{{ asset('js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>
