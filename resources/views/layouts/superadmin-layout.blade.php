@@ -110,7 +110,7 @@
          								document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>
           								Logout
     								</a>
-									<form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+									<form id="logout-form" action="{{ route('superadmin.logout') }}" method="POST" style="display: none;">
             							@csrf
         							</form>
 								</ul>
@@ -162,7 +162,7 @@
 							</a>
 						</li>
 						<li class="nav-item {{ $activeMenu == 'superadmin.disposisi' ? 'active' : '' }}">
-							<a href="/superadmin/disposisi">
+							<a href="{{route('disposisi.index')}}">
 								<i class="la la-keyboard-o"></i>
 								<p>Disposisi</p>
 							</a>

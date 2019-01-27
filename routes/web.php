@@ -87,4 +87,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('disposisi','DisposisiController');
+Route::resource('disposisi','DisposisiController')->middleware('auth:superadmin');
