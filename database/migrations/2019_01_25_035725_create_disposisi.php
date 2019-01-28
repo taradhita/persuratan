@@ -17,7 +17,7 @@ class CreateDisposisi extends Migration
             $table->increments('id');
             $table->string('no_disposisi');
             $table->date('tanggal_disposisi');
-            $table->int('tujuan_disposisi')->unsigned();
+            $table->integer('tujuan_disposisi')->unsigned();
             $table->foreign('tujuan_disposisi')->references('id')->on('users');
             $table->string('file_disposisi');
             $table->string('note');

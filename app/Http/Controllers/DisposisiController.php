@@ -29,7 +29,7 @@ class DisposisiController extends Controller
         if ($request->hasFile('file_disposisi')) {
             $file = $request->file('file_disposisi');
 
-            $filename = Str::random(40) . '.' . $file->extension();
+            $filename = 'Disposisi_' . Str::random(40) . '.' . $file->extension();
 
             Storage::disk('public')->write('disposisi/' . $filename, $file);
         }
@@ -42,6 +42,7 @@ class DisposisiController extends Controller
         $disposisi->note = $request['note'];
 
         $disposisi->save();
+        return redirect()->back();
     }
 
     public function show($id)

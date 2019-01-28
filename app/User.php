@@ -31,4 +31,12 @@ class User extends Authenticatable
     public function suratmasuk(){
         return $this->hasMany('App\SuratMasuk');
     }
+
+    public function dispo(){
+        return $this->hasMany('App\Disposisi');
+    }
+
+    public function suratkeluar(){
+        return $this->hasMany('App\SuratKeluar');
+    }
 }

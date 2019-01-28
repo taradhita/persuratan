@@ -153,20 +153,27 @@
 					</div>
 					<ul class="nav">
 						<li class="nav-item {{ $activeMenu == 'user.home' ? 'active' : '' }}">
-							<a href="index.html">
+							<a href="/user/dashboard">
 								<i class="la la-dashboard"></i>
 								<p>Dashboard</p>
 							</a>
 						</li>
 						<li class="nav-item {{ $activeMenu == 'user.surat-masuk' ? 'active' : '' }}">
-							<a href="components.html">
+							<a href="/user/surat-masuk">
 								<i class="la la-table"></i>
 								<p>Surat Masuk</p>
 								<span class="badge badge-count">14</span>
 							</a>
 						</li>
+						<li class="nav-item {{ $activeMenu == 'user.disposisi-masuk' ? 'active' : '' }}">
+							<a href="{{route('user.disposisi-masuk')}}">
+								<i class="la la-table"></i>
+								<p>Disposisi Masuk</p>
+								<span class="badge badge-count">14</span>
+							</a>
+						</li>
 						<li class="nav-item {{ $activeMenu == 'user.surat-keluar' ? 'active' : '' }}">
-							<a href="forms.html">
+							<a href="/user/surat-keluar">
 								<i class="la la-keyboard-o"></i>
 								<p>Surat Keluar</p>
 							</a>

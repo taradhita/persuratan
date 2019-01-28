@@ -53,13 +53,11 @@ Route::get('/user', function () {
 Route::get('/user/surat-keluar', function () {
     return view('user-dashboard/user-surat-keluar');
 })->middleware('auth');
-Route::get('/user/surat-masuk', function () {
-    return view('user-dashboard/user-surat-masuk');
-})->middleware('auth');
-
+Route::get('/user/surat-masuk', 'ApproveSuratController@suratDiterima')->middleware('auth');
+Route::get('/user/disposisi-masuk', ['as' => 'user.disposisi-masuk', 'uses' => 'ApproveSuratController@disposisiMasuk'])->middleware('auth');
 Route::get('user/{user}/edit',  ['as' => 'user.edit', 'uses' => 'UpdateUserController@edit'])->middleware('auth');
 Route::put('user/{user}',  ['as' => 'user.update', 'uses' => 'UpdateUserController@update']);
-
+Route::resource('/user/surat-keluar','SuratKeluarController')->middleware('auth');
 
 Route::get('/superadmin', function () {
     return view('superadmin/superadmin-dashboard/superadmin-home');
