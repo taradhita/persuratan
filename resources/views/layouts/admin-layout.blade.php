@@ -167,14 +167,14 @@
 						</li>
 						<li class="nav-item {{ $activeMenu == 'admin.surat-masuk' ? 'active' : '' }}">
 							<a href="/admin/surat-masuk">
-								<i class="la la-table"></i>
+								<i class="la la-inbox"></i>
 								<p>Surat Masuk</p>
 								<span class="badge badge-count">14</span>
 							</a>
 						</li>
 						<li class="nav-item {{ $activeMenu == 'admin.arsip' ? 'active' : '' }}">
 							<a href="/admin/arsip">
-								<i class="la la-keyboard-o"></i>
+								<i class="la la-archive"></i>
 								<p>Arsip Surat</p>
 							</a>
 						</li>

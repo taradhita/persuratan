@@ -18,7 +18,6 @@
 								<th>No. Surat</th>
 								<th>Tanggal</th>
 								<th>Tujuan</th>
-								<th>Asal Surat</th>
 								<th>Perihal</th>
 								<th>File Surat</th>	
 							</tr>
@@ -29,8 +28,7 @@
 								<th scope="row">{{$loop->iteration}}</th>
 								<td>{{$s->no_surat}}</td>
 								<td>{{$s->tanggal}}</td>
-								<td>{{$s->user->nama_seksi}}</td>
-								<td>{{$s->asal_surat}}</td>
+								<td>{{$s->tujuan}}</td>
 								<td>{{$s->perihal}}</td>
 								<td><button class="btn btn-primary" data-toggle="modal" data-target="#modalView{{$s->id}}">Lihat</button> 
 								<!-- Modal -->

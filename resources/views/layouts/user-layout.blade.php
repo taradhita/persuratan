@@ -58,35 +58,7 @@
 												<span class="time">5 minutes ago</span> 
 											</div>
 										</a>
-										<a href="#">
-											<div class="notif-icon notif-success"> <i class="la la-comment"></i> </div>
-											<div class="notif-content">
-												<span class="block">
-													Rahmad commented on Admin
-												</span>
-												<span class="time">12 minutes ago</span> 
-											</div>
-										</a>
-										<a href="#">
-											<div class="notif-img"> 
-												<img src="../assets/img/profile2.jpg" alt="Img Profile">
-											</div>
-											<div class="notif-content">
-												<span class="block">
-													Reza send messages to you
-												</span>
-												<span class="time">12 minutes ago</span> 
-											</div>
-										</a>
-										<a href="#">
-											<div class="notif-icon notif-danger"> <i class="la la-heart"></i> </div>
-											<div class="notif-content">
-												<span class="block">
-													Farrah liked Admin
-												</span>
-												<span class="time">17 minutes ago</span> 
-											</div>
-										</a>
+										
 									</div>
 								</li>
 								<li>
@@ -126,7 +98,7 @@
 				<div class="scrollbar-inner sidebar-wrapper">
 					<div class="user">
 						<div class="photo">
-							<img src="../assets/img/profile.jpg">
+							<img src="/images/icons/user_icon.png">
 						</div>
 						<div class="info">
 							<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
@@ -153,28 +125,28 @@
 					</div>
 					<ul class="nav">
 						<li class="nav-item {{ $activeMenu == 'user.home' ? 'active' : '' }}">
-							<a href="/user/dashboard">
+							<a href="/user">
 								<i class="la la-dashboard"></i>
 								<p>Dashboard</p>
 							</a>
 						</li>
 						<li class="nav-item {{ $activeMenu == 'user.surat-masuk' ? 'active' : '' }}">
 							<a href="/user/surat-masuk">
-								<i class="la la-table"></i>
+								<i class="la la-inbox"></i>
 								<p>Surat Masuk</p>
 								<span class="badge badge-count">14</span>
 							</a>
 						</li>
 						<li class="nav-item {{ $activeMenu == 'user.disposisi-masuk' ? 'active' : '' }}">
 							<a href="{{route('user.disposisi-masuk')}}">
-								<i class="la la-table"></i>
+								<i class="la la-file-text"></i>
 								<p>Disposisi Masuk</p>
 								<span class="badge badge-count">14</span>
 							</a>
 						</li>
 						<li class="nav-item {{ $activeMenu == 'user.surat-keluar' ? 'active' : '' }}">
 							<a href="/user/surat-keluar">
-								<i class="la la-keyboard-o"></i>
+								<i class="la la-send"></i>
 								<p>Surat Keluar</p>
 							</a>
 						</li>
