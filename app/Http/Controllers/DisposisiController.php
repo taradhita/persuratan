@@ -54,9 +54,7 @@ class DisposisiController extends Controller
 
         $filePath = 'public/disposisi/' . $file->file_disposisi;
 
-
         $pdfContent = Storage::get($filePath);
-
 
         return Response::make($pdfContent, 200, [
             'Content-Type' => 'application/pdf'
