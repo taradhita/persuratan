@@ -6,7 +6,6 @@ use App\Disposisi;
 use App\Http\Requests\DisposisiRequest;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class DisposisiController extends Controller
@@ -31,8 +30,9 @@ class DisposisiController extends Controller
 
             $filename = 'Disposisi_' . Str::random(40) . '.' . $file->extension();
 
-            Storage::disk('public')->write('disposisi/' . $filename, $file);
+            $file->storeAs('public/disposisi/', $filename);
         }
+
         $disposisi = new Disposisi();
 
         $disposisi->no_disposisi = $request['no_disposisi'];
@@ -42,6 +42,7 @@ class DisposisiController extends Controller
         $disposisi->note = $request['note'];
 
         $disposisi->save();
+
         return redirect()->back();
     }
 

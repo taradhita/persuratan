@@ -40,7 +40,7 @@
 													</button>
 												</div>
 												<div class="modal-body text-center">									
-													<img src="{{ storage_path('app/disposisi/$d->file_disposisi') }}" width="85%;" >
+													<img src="{{ url('storage/disposisi/'.$d->file_disposisi) }}" width="85%;" >
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
