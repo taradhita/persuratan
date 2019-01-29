@@ -6,6 +6,8 @@ use App\Disposisi;
 use App\Http\Requests\DisposisiRequest;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class DisposisiController extends Controller
@@ -44,6 +46,21 @@ class DisposisiController extends Controller
         $disposisi->save();
 
         return redirect()->back();
+    }
+
+    public function getFile($id)
+    {
+        $file = Disposisi::findOrFail($id);
+
+        $filePath = 'public/disposisi/' . $file->file_disposisi;
+
+
+        $pdfContent = Storage::get($filePath);
+
+
+        return Response::make($pdfContent, 200, [
+            'Content-Type' => 'application/pdf'
+        ]);
     }
 
     public function show($id)
