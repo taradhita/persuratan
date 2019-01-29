@@ -8,11 +8,6 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
 	<link rel="stylesheet" href="{{ asset('css/ready.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/demo.css') }}">
-	<script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
 
 </head>
 <body>
@@ -33,11 +28,34 @@
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						<li class="nav-item dropdown hidden-caret">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i class="la la-bell" data-toggle="0"></i>
-								<span class="notification">0</span>
+								<i class="la la-bell"></i>
+								<span class="notification">{{auth()->user()->unreadNotifications->count()}}</span>
 							</a>
 							<ul class="dropdown-menu notif-box" aria-labelledby="navbarDropdown">
-								
+								<li>
+									<div class="dropdown-title">You have {{auth()->user()->unreadNotifications->count()}} new notification</div>
+								</li>
+								@if (auth()->user()->unreadNotifications->count())
+								@foreach(auth()->user()->unreadNotifications as $notif)
+								<li>
+									<div class="notif-center">
+										<a href="#">
+											<div class="notif-icon notif-primary"> <i class="la la-user-plus"></i> </div>
+											<div class="notif-content">
+												<span class="block">
+													{{$notif->data['suratmasuk']['asal_surat']}} mengirim pesan baru
+												</span>
+												<span class="time">5 minutes ago</span> 
+											</div>
+										</a>
+										
+									</div>
+								</li>
+								@endforeach
+								@endif
+								<li>
+									<a class="see-all" href="javascript:void(0);"> <strong>See all notifications</strong> <i class="la la-angle-right"></i> </a>
+								</li>
 							</ul>
 						</li>
 						<li class="nav-item dropdown">

@@ -7,21 +7,20 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use App\SuratMasuk;
-use App\Admin;
 
-class SuratMasukBaru extends Notification implements ShouldQueue
+class SuratMasukBaru extends Notification
 {
     use Queueable;
-    protected $suratmasuk;
+    protected $smasuk;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(SuratMasuk $smasuk)
+    public function __construct($smasuk)
     {
         
-        $this->suratmasuk = $suratmasuk;
+        $this->smasuk = $smasuk;
     }
 
     /**
@@ -41,19 +40,18 @@ class SuratMasukBaru extends Notification implements ShouldQueue
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    public function toMail($notifiable)
+    /*public function toMail($notifiable)
     {
         return (new MailMessage)
                     ->line('The introduction to the notification.')
                     ->action('Notification Action', url('/'))
                     ->line('Thank you for using our application!');
-    }
+    }*/
 
     public function toDatabase($notifiable)
     {
         return [
-            'id_suratmasuk'=>$this->suratmasuk->id,
-            'asal_suratmasuk'=>$this->suratmasuk->asal_surat,
+            'suratmasuk' => $this->smasuk,
         ];
     }
 
@@ -63,7 +61,7 @@ class SuratMasukBaru extends Notification implements ShouldQueue
      * @param  mixed  $notifiable
      * @return array
      */
-    public function toArray($notifiable)
+    /*public function toArray($notifiable)
     {
         return [
             'id' => $this->id,
@@ -73,5 +71,5 @@ class SuratMasukBaru extends Notification implements ShouldQueue
                 'asal_suratmasuk'=>$this->suratmasuk->asal_surat,
             ],
         ];
-    }
+    }*/
 }

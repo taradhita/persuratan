@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\SuratMasuk;
 use App\User;
 use Storage;
+use App\Superadmin;
+use App\Notifications\SuratMasukBaru;
 
 class SuratMasukController extends Controller
 {
@@ -40,10 +42,14 @@ class SuratMasukController extends Controller
         if(!empty($file)){
         	$filename =  "Surat-Masuk_" . rand(10,1000) . "_" . date('m-d-Y', time()) . '.' . $file->getClientOriginalExtension();
         	$suratmasuk->file_surat = $filename;
-        	$file->move(public_path('images/arsip_surat'),$filename);
+        	$file->move(public_path('images/surat_masuk'),$filename);
         }
         $suratmasuk->save();
-        return redirect('/admin/surat-masuk');
+        $approve = Superadmin::all();
+        if(\Notification::send($approve, new SuratMasukBaru(SuratMasuk::latest('id')->first()))){
+            return redirect('/admin/surat-masuk');
+        }
+        
 
     }
 
