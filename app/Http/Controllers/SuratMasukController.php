@@ -45,13 +45,15 @@ class SuratMasukController extends Controller
         	$file->move(public_path('images/surat_masuk'),$filename);
         }
         $suratmasuk->save();
+        return redirect('/admin/surat-masuk');
         $approve = Superadmin::all();
-        if(\Notification::send($approve, new SuratMasukBaru(SuratMasuk::latest('id')->first()))){
-            return redirect('/admin/surat-masuk');
-        }
-        
+        \Notification::send($approve, new SuratMasukBaru(SuratMasuk::latest('id')->first()));
 
     }
+
+    /*public function notif(){
+        return auth()->user()->unreadNotifications;
+    }*/
 
     public function edit(SuratMasuk $surat_masuk){
         $user = User::all();

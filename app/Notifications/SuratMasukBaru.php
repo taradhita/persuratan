@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use App\SuratMasuk;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 
 class SuratMasukBaru extends Notification
 {
@@ -55,6 +56,16 @@ class SuratMasukBaru extends Notification
         ];
     }
 
+
+
+    /*public function toBroadcast($notifiable)
+    {
+        return new BroadcastMessage([
+            'suratmasuk' => $this->smasuk,
+        ]);
+    }/*
+
+
     /**
      * Get the array representation of the notification.
      *
@@ -67,8 +78,7 @@ class SuratMasukBaru extends Notification
             'id' => $this->id,
             'read_at' => null,
             'data' => [
-                'id_suratmasuk'=>$this->suratmasuk->id,
-                'asal_suratmasuk'=>$this->suratmasuk->asal_surat,
+                'suratmasuk' => $this->smasuk,
             ],
         ];
     }*/

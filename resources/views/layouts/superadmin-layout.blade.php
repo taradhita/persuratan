@@ -8,6 +8,9 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
 	<link rel="stylesheet" href="{{ asset('css/ready.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/demo.css') }}">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+
+
 
 </head>
 <body>
@@ -23,9 +26,10 @@
 				<button class="topbar-toggler more"><i class="la la-ellipsis-v"></i></button>
 			</div>
 			<nav class="navbar navbar-header navbar-expand-lg">
-				<div class="container-fluid">
+				<div class="container-fluid" id="app">
 					
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+						<!--<suratmasuk v-bind:suratmasuks="suratmasuks"></suratmasuk>-->
 						<li class="nav-item dropdown hidden-caret">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="la la-bell"></i>
@@ -33,14 +37,20 @@
 							</a>
 							<ul class="dropdown-menu notif-box" aria-labelledby="navbarDropdown">
 								<li>
-									<div class="dropdown-title">You have {{auth()->user()->unreadNotifications->count()}} new notification</div>
+									<div class="dropdown-title">{{auth()->user()->unreadNotifications->count()}} notifikasi baru</div>
 								</li>
+								<!--<li>
+									<div class="dropdown-title" style="font-weight: 300;"> <a href="{{route('markread')}}"> Tandai Semua sebagai Dibaca</a></div>
+									
+								</li>-->
+								
 								@if (auth()->user()->unreadNotifications->count())
+								
 								@foreach(auth()->user()->unreadNotifications as $notif)
 								<li>
 									<div class="notif-center">
 										<a href="#">
-											<div class="notif-icon notif-primary"> <i class="la la-user-plus"></i> </div>
+											<div class="notif-icon notif-primary"> <i class="la la-envelope"></i> </div>
 											<div class="notif-content">
 												<span class="block">
 													{{$notif->data['suratmasuk']['asal_surat']}} mengirim pesan baru
@@ -54,7 +64,7 @@
 								@endforeach
 								@endif
 								<li>
-									<a class="see-all" href="javascript:void(0);"> <strong>See all notifications</strong> <i class="la la-angle-right"></i> </a>
+									<a class="see-all" href="javascript:void(0);"> <strong>Lihat Semua</strong> <i class="la la-angle-right"></i> </a>
 								</li>
 							</ul>
 						</li>
@@ -145,10 +155,13 @@
 		</div>
 	</div>
 
+
+	<!--<script src="{{ asset('js/app.js') }}"></script>-->
+
 </body>
+
 <script src="{{ asset('js/core/jquery.3.2.1.min.js') }}"></script>
 <script src="{{ asset('js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>
-<script src="//js.pusher.com/3.1/pusher.min.js"></script>
 <script src="{{ asset('js/core/popper.min.js') }}"></script>
 <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/plugin/chartist/chartist.min.js') }}"></script>
@@ -157,6 +170,9 @@
 <script src="{{ asset('js/plugin/bootstrap-toggle/bootstrap-toggle.min.js') }}"></script>
 <script src="{{ asset('js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
 <script src="{{ asset('js/ready.min.js') }}"></script>
+
+
+
 <script>
 	$( function() {
 		$( "#slider" ).slider({
