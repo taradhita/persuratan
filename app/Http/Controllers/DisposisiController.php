@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use App\Notifications\DisposisiNotif;
 
 class DisposisiController extends Controller
 {
@@ -44,7 +45,8 @@ class DisposisiController extends Controller
         $disposisi->note = $request['note'];
 
         $disposisi->save();
-
+        $masuk = User::where('id','=',$disposisi->tujuan_disposisi)->get();
+        \Notification::send($masuk, new DisposisiNotif($disposisi));
         return redirect()->back();
     }
 

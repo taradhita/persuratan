@@ -22,8 +22,11 @@
 									</div>
 								</li>
 								
+								<li v-if="suratmasuks.length!=0">
+									<a class="see-all" href="#" v-on:click="markAllAsRead()"> Tandai Semua sebagai Dibaca <i class="la la-angle-right"></i> </a>
+								</li>
 								<li>
-									<a class="see-all" href="javascript:void(0);"> <strong>See all notifications</strong> <i class="la la-angle-right"></i> </a>
+									<a class="see-all" href="#"> <strong>See all notifications</strong> <i class="la la-angle-right"></i> </a>
 								</li>
 							</ul>
 						</li>
@@ -32,5 +35,12 @@
 <script>
 export default{
 	props:['suratmasuks'],
+	methods: {
+		markAllAsRead:function(){
+			axios.post('/superadmin/markall').then(response=>{
+				window.location.href="/superadmin";
+			});
+		}
+	}
 };
 </script>

@@ -44,8 +44,8 @@
 														<span aria-hidden="true">&times;</span>
 													</button>
 												</div>
-												<div class="modal-body text-center">									
-													<img src="/images/arsip_surat/{{$s->file_surat}}" width="85%;" >
+												<div class="modal-body text-center">					
+													<iframe src="/images/surat_masuk/{{$s->file_surat}}" frameborder="0" style="width:100%;min-height:500px;"></iframe>
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

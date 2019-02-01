@@ -45,14 +45,22 @@ class SuratMasukController extends Controller
         	$file->move(public_path('images/surat_masuk'),$filename);
         }
         $suratmasuk->save();
-        return redirect('/admin/surat-masuk');
         $approve = Superadmin::all();
         \Notification::send($approve, new SuratMasukBaru(SuratMasuk::latest('id')->first()));
+        return redirect('/admin/surat-masuk');
+        
+        
+        
+        
 
     }
 
     public function notif(){
         return auth()->user()->unreadNotifications;
+    }
+
+    public function markAllAsRead(){
+        auth()->user()->unreadNotifications->markAsRead();
     }
 
     public function edit(SuratMasuk $surat_masuk){
@@ -90,4 +98,5 @@ class SuratMasukController extends Controller
     	$surat_masuk->delete();
     	return redirect('/admin/surat-masuk');
     }
+
 }

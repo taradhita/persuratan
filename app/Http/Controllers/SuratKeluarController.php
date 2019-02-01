@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\SuratKeluar;
 use Auth;
+use App\Admin;
+use App\Notifications\SuratKeluarNotif;
 
 class SuratKeluarController extends Controller
 {
@@ -39,6 +41,8 @@ class SuratKeluarController extends Controller
         	$file->move(public_path('images/surat_keluar'),$filename);
         }
         $suratkeluar->save();
+        $keluar = Admin::all();
+        \Notification::send($keluar, new SuratKeluarNotif(SuratKeluar::latest('id')->first()));
         return redirect('/user/surat-keluar');
     }
 

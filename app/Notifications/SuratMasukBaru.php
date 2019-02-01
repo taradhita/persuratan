@@ -32,7 +32,7 @@ class SuratMasukBaru extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database','broadcast'];
     }
 
     /**
@@ -58,11 +58,11 @@ class SuratMasukBaru extends Notification
 
 
 
-    /*public function toBroadcast($notifiable)
+    public function toBroadcast($notifiable)
     {
-        return new BroadcastMessage([
+        return [
             'suratmasuk' => $this->smasuk,
-        ]);
+        ];
     }/*
 
 

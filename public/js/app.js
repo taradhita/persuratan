@@ -1794,8 +1794,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['suratmasuks']
+  props: ['suratmasuks'],
+  methods: {
+    markAllAsRead: function markAllAsRead() {
+      axios.post('/superadmin/markall').then(function (response) {
+        window.location.href = "/superadmin";
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -46808,6 +46818,27 @@ var render = function() {
           ])
         }),
         _vm._v(" "),
+        _vm.suratmasuks.length != 0
+          ? _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "see-all",
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      _vm.markAllAsRead()
+                    }
+                  }
+                },
+                [
+                  _vm._v(" Tandai Semua sebagai Dibaca "),
+                  _c("i", { staticClass: "la la-angle-right" })
+                ]
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
         _vm._m(1)
       ],
       2
@@ -46828,15 +46859,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", [
-      _c(
-        "a",
-        { staticClass: "see-all", attrs: { href: "javascript:void(0);" } },
-        [
-          _c("strong", [_vm._v("See all notifications")]),
-          _vm._v(" "),
-          _c("i", { staticClass: "la la-angle-right" })
-        ]
-      )
+      _c("a", { staticClass: "see-all", attrs: { href: "#" } }, [
+        _c("strong", [_vm._v("See all notifications")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "la la-angle-right" })
+      ])
     ])
   }
 ]
@@ -58231,14 +58258,15 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
 /*!*****************************************************!*\
   !*** ./resources/js/components/SuratMasukNotif.vue ***!
   \*****************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SuratMasukNotif_vue_vue_type_template_id_4dbbcf7a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SuratMasukNotif.vue?vue&type=template&id=4dbbcf7a& */ "./resources/js/components/SuratMasukNotif.vue?vue&type=template&id=4dbbcf7a&");
 /* harmony import */ var _SuratMasukNotif_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SuratMasukNotif.vue?vue&type=script&lang=js& */ "./resources/js/components/SuratMasukNotif.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _SuratMasukNotif_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _SuratMasukNotif_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -58268,7 +58296,7 @@ component.options.__file = "resources/js/components/SuratMasukNotif.vue"
 /*!******************************************************************************!*\
   !*** ./resources/js/components/SuratMasukNotif.vue?vue&type=script&lang=js& ***!
   \******************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
