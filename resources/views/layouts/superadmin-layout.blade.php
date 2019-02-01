@@ -9,7 +9,15 @@
 	<link rel="stylesheet" href="{{ asset('css/ready.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/demo.css') }}">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<script>
+    	window.Laravel = <?php echo json_encode([
+        	'csrfToken' => csrf_token(),
+    	]); ?>
+	</script>
 
+	<script>
+     	window.Laravel.userId = <?php echo auth()->user()->id; ?>;
+	</script>
 
 
 </head>
@@ -18,7 +26,7 @@
 		<div class="main-header">
 			<div class="logo-header">
 				<a href="/superadmin" class="logo">
-					Dashboard
+					Dashboarc
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -29,8 +37,8 @@
 				<div class="container-fluid" id="app">
 					
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-						<!--<suratmasuk v-bind:suratmasuks="suratmasuks"></suratmasuk>-->
-						<li class="nav-item dropdown hidden-caret">
+						<suratmasuk v-bind:suratmasuks="suratmasuks"></suratmasuk>
+						<!--<li class="nav-item dropdown hidden-caret">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="la la-bell"></i>
 								<span class="notification">{{auth()->user()->unreadNotifications->count()}}</span>
@@ -39,11 +47,7 @@
 								<li>
 									<div class="dropdown-title">{{auth()->user()->unreadNotifications->count()}} notifikasi baru</div>
 								</li>
-								<!--<li>
-									<div class="dropdown-title" style="font-weight: 300;"> <a href="{{route('markread')}}"> Tandai Semua sebagai Dibaca</a></div>
-									
-								</li>-->
-								
+							
 								@if (auth()->user()->unreadNotifications->count())
 								
 								@foreach(auth()->user()->unreadNotifications as $notif)
@@ -67,7 +71,7 @@
 									<a class="see-all" href="javascript:void(0);"> <strong>Lihat Semua</strong> <i class="la la-angle-right"></i> </a>
 								</li>
 							</ul>
-						</li>
+						</li>-->
 						<li class="nav-item dropdown">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="/images/icons/user_icon.png" alt="user-img" width="36" class="img-circle"><span >{{Auth::user()->username}}</span></span> </a>
 							<ul class="dropdown-menu dropdown-user">
@@ -156,14 +160,15 @@
 	</div>
 
 
-	<!--<script src="{{ asset('js/app.js') }}"></script>-->
+	<script src="{{ asset('js/app.js') }}"></script>
+
 
 </body>
 
-<script src="{{ asset('js/core/jquery.3.2.1.min.js') }}"></script>
+<!--<script src="{{ asset('js/core/jquery.3.2.1.min.js') }}"></script>-->
 <script src="{{ asset('js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('js/core/popper.min.js') }}"></script>
-<script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
+<!--<script src="{{ asset('js/core/bootstrap.min.js') }}"></script>-->
 <script src="{{ asset('js/plugin/chartist/chartist.min.js') }}"></script>
 <script src="{{ asset('js/plugin/chartist/plugin/chartist-plugin-tooltip.min.js') }}"></script>
 <script src="{{ asset('js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script>

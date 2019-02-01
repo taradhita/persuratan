@@ -64,7 +64,7 @@ Route::get('/superadmin', function () {
 })->name('superadmin')->middleware('auth:superadmin');
 Route::get('/superadmin/surat-masuk','ApproveSuratController@index')->middleware('auth:superadmin');
 Route::put('/superadmin/surat-masuk/{surat_masuk}',['as' => 'superadmin.surat-masuk.update', 'uses' => 'ApproveSuratController@update'])->middleware('auth:superadmin');
-//Route::post('/superadmin/notif', 'SuratMasukController@notif');
+Route::post('/superadmin/notif', 'SuratMasukController@notif')->middleware('auth:superadmin');
 
 //Route::get('/superadmin/disposisi');
 

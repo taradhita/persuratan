@@ -46792,12 +46792,16 @@ var render = function() {
                   _c("span", { staticClass: "block" }, [
                     _vm._v(
                       "\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                        _vm._s(suratmasuk.data) +
-                        " \n\t\t\t\t\t\t\t\t\t\t\t\t"
+                        _vm._s(suratmasuk.data["suratmasuk"]["asal_surat"]) +
+                        " mengirim surat masuk \n\t\t\t\t\t\t\t\t\t\t\t\t"
                     )
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "time" }, [_vm._v("5 minutes ago")])
+                  _c("span", { staticClass: "time" }, [
+                    _vm._v(
+                      _vm._s(suratmasuk.data["suratmasuk"]["created_at"]) + " "
+                    )
+                  ])
                 ])
               ])
             ])
@@ -58131,7 +58135,7 @@ window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jqu
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('suratmasuk', __webpack_require__(/*! ./components/SuratMasukNotif.vue */ "./resources/js/components/SuratMasukNotif.vue"));
+Vue.component('suratmasuk', __webpack_require__(/*! ./components/SuratMasukNotif.vue */ "./resources/js/components/SuratMasukNotif.vue").default);
 var app = new Vue({
   el: '#app',
   data: {
@@ -58140,20 +58144,21 @@ var app = new Vue({
   created: function created() {
     var _this = this;
 
-    //if(window.Laravel.userId){
-    axios.post('/superadmin/notif').then(function (response) {
-      _this.suratmasuks = response.data;
-      console.log(response.data);
-    });
-    Echo.private('App.Superadmin.' + this.userid).notification(function (response) {
-      data = {
-        "data": response
-      };
+    if (window.Laravel.userId) {
+      axios.post('/superadmin/notif').then(function (response) {
+        _this.suratmasuks = response.data;
+        console.log(response.data);
+      });
+      Echo.private('App.Superadmin.' + window.Laravel.userId).notification(function (response) {
+        data = {
+          "data": response
+        };
 
-      _this.suratmasuks.push(data);
+        _this.suratmasuks.push(data);
 
-      console.log(response);
-    }); //}
+        console.log(response);
+      });
+    }
   }
 });
 

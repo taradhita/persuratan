@@ -51,9 +51,9 @@ class SuratMasukController extends Controller
 
     }
 
-    /*public function notif(){
+    public function notif(){
         return auth()->user()->unreadNotifications;
-    }*/
+    }
 
     public function edit(SuratMasuk $surat_masuk){
         $user = User::all();

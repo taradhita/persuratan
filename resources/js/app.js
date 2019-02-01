@@ -33,24 +33,24 @@ window.$ = window.jQuery = require('jquery');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('suratmasuk', require('./components/SuratMasukNotif.vue'));
+Vue.component('suratmasuk', require('./components/SuratMasukNotif.vue').default);
 const app = new Vue({
     el: '#app',
     data:{
     	suratmasuks:'',
     },
     created(){
-    	//if(window.Laravel.userId){
+    	if(window.Laravel.userId){
     		axios.post('/superadmin/notif').then(response=>{
     			this.suratmasuks =response.data;
     			console.log(response.data);
     		});
-    		Echo.private('App.Superadmin.'+this.userid).notification((response) =>{
+    		Echo.private('App.Superadmin.'+window.Laravel.userId).notification((response) =>{
     			data = {"data":response};
     			this.suratmasuks.push(data);
     			console.log(response);
     		});
-    	//}
+    	}
     }
 });
 
