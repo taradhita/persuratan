@@ -14,7 +14,8 @@
 											<div class="notif-icon notif-primary"> <i class="la la-user-plus"></i> </div>
 											<div class="notif-content">
 												<span class="block">
-													{{suratmasuk.data['suratmasuk']['asal_surat']}} mengirim surat masuk 
+													<b>{{suratmasuk.data['suratmasuk']['asal_surat']}} mengirim surat masuk </b><br />
+													{{suratmasuk.data['suratmasuk']['perihal']}}
 												</span>
 												<span class="time">{{suratmasuk.data['suratmasuk']['created_at']}} </span> 
 											</div>

@@ -38,40 +38,7 @@
 					
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						<suratkeluar v-bind:suratkeluars="suratkeluars"></suratkeluar>
-						<!--<li class="nav-item dropdown hidden-caret">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i class="la la-bell"></i>
-								<span class="notification">{{auth()->user()->unreadNotifications->count()}}</span>
-							</a>
-							<ul class="dropdown-menu notif-box" aria-labelledby="navbarDropdown">
-								<li>
-									<div class="dropdown-title">{{auth()->user()->unreadNotifications->count()}} notifikasi baru</div>
-								</li>
-							
-								@if (auth()->user()->unreadNotifications->count())
-								
-								@foreach(auth()->user()->unreadNotifications as $notif)
-								<li>
-									<div class="notif-center">
-										<a href="#">
-											<div class="notif-icon notif-primary"> <i class="la la-envelope"></i> </div>
-											<div class="notif-content">
-												<span class="block">
-													Surat keluar menuju {{$notif->data['suratkeluar']['tujuan']}} 
-												</span>
-												<span class="time">5 minutes ago</span> 
-											</div>
-										</a>
-										
-									</div>
-								</li>
-								@endforeach
-								@endif
-								<li>
-									<a class="see-all" href="javascript:void(0);"> <strong>Lihat Semua</strong> <i class="la la-angle-right"></i> </a>
-								</li>
-							</ul>
-						</li>-->
+						
 						<li class="nav-item dropdown">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="/images/icons/user_icon.png" alt="user-img" width="36" class="img-circle"><span>{{Auth::user()->username}}</span></span> </a>
 							<ul class="dropdown-menu dropdown-user">

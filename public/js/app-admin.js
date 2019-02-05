@@ -1798,6 +1798,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['suratkeluars'],
   methods: {
@@ -46797,32 +46811,64 @@ var render = function() {
         _vm._v(" "),
         _vm._l(_vm.suratkeluars, function(suratkeluar) {
           return _c("li", [
-            _c("div", { staticClass: "notif-center" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _vm._m(0, true),
-                _vm._v(" "),
-                _c("div", { staticClass: "notif-content" }, [
-                  _c("span", { staticClass: "block" }, [
-                    _c("b", [
-                      _vm._v(_vm._s(suratkeluar.data["suratkeluar"]["perihal"]))
-                    ]),
-                    _c("br"),
-                    _vm._v(
-                      "\n\t\t\t\t\t\t\t\t\t\t\t\t\tTujuan: " +
-                        _vm._s(suratkeluar.data["suratkeluar"]["tujuan"]) +
-                        "\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "time" }, [
-                    _vm._v(
-                      _vm._s(suratkeluar.data["suratkeluar"]["created_at"]) +
-                        " "
-                    )
+            suratkeluar.data["suratkeluar"] !== _vm.NULL
+              ? _c("div", { staticClass: "notif-center" }, [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._m(0, true),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "notif-content" }, [
+                      _c("span", { staticClass: "block" }, [
+                        _c("b", [
+                          _vm._v(
+                            "(Kepada: " +
+                              _vm._s(
+                                suratkeluar.data["suratkeluar"]["tujuan"]
+                              ) +
+                              ") Telah Terkirim "
+                          )
+                        ]),
+                        _c("br"),
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                            _vm._s(suratkeluar.data["suratkeluar"]["perihal"]) +
+                            " \n\t\t\t\t\t\t\t\t\t\t\t\t"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "time" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                            _vm._s(
+                              suratkeluar.data["suratkeluar"]["created_at"]
+                            )
+                        )
+                      ])
+                    ])
                   ])
                 ])
-              ])
-            ])
+              : suratkeluar.data["tolak"] !== _vm.NULL
+              ? _c("div", { staticClass: "notif-center" }, [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._m(1, true),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "notif-content" }, [
+                      _c("span", { staticClass: "block" }, [
+                        _c("b", [_vm._v("Surat masuk ditolak")]),
+                        _c("br"),
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                            _vm._s(suratkeluar.data["tolak"]["perihal"]) +
+                            "\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "time" }, [
+                        _vm._v(_vm._s(suratkeluar.data["tolak"]["created_at"]))
+                      ])
+                    ])
+                  ])
+                ])
+              : _vm._e()
           ])
         }),
         _vm._v(" "),
@@ -46847,7 +46893,7 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm._m(1)
+        _vm._m(2)
       ],
       2
     )
@@ -46860,6 +46906,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "notif-icon notif-primary" }, [
       _c("i", { staticClass: "la la-send-o" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "notif-icon notif-danger" }, [
+      _c("i", { staticClass: "la la-close" })
     ])
   },
   function() {

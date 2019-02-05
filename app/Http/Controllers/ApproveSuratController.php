@@ -32,6 +32,8 @@ class ApproveSuratController extends Controller
     	else if (Input::get('status')=='Tolak'){
     		$surat_masuk->status='Ditolak';
             $surat_masuk->save();
+            $tolak = Admin::all();
+            \Notification::send($tolak, new TolakSuratNotif($surat_masuk));
             return redirect('/superadmin/surat-masuk');
     	}
     	

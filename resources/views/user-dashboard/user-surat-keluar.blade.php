@@ -55,7 +55,7 @@
 							@endforeach
 						</tbody>
 					</table>
-				{{ $suratmasuk->links('pagination.custom') }}
+				{{ $suratkeluar->links('pagination.custom') }}
 				</div>
 									
 			</div>

@@ -1797,6 +1797,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['suratmasuks'],
   methods: {
@@ -46800,10 +46801,17 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "notif-content" }, [
                   _c("span", { staticClass: "block" }, [
+                    _c("b", [
+                      _vm._v(
+                        _vm._s(suratmasuk.data["suratmasuk"]["asal_surat"]) +
+                          " mengirim surat masuk "
+                      )
+                    ]),
+                    _c("br"),
                     _vm._v(
                       "\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                        _vm._s(suratmasuk.data["suratmasuk"]["asal_surat"]) +
-                        " mengirim surat masuk \n\t\t\t\t\t\t\t\t\t\t\t\t"
+                        _vm._s(suratmasuk.data["suratmasuk"]["perihal"]) +
+                        "\n\t\t\t\t\t\t\t\t\t\t\t\t"
                     )
                   ]),
                   _vm._v(" "),

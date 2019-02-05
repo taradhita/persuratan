@@ -137,7 +137,6 @@
 							<a href="/superadmin/surat-masuk">
 								<i class="la la-table"></i>
 								<p>Surat Masuk</p>
-								<span class="badge badge-count">14</span>
 							</a>
 						</li>
 						<li class="nav-item {{ $activeMenu == 'superadmin.disposisi' ? 'active' : '' }}">

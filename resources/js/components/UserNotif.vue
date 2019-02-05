@@ -14,14 +14,15 @@
 											<div class="notif-icon notif-primary"> <i class="la la-envelope"></i> </div>
 											<div class="notif-content" v-if="approve.data['approve']!==NULL">
 												<span class="block">
-													{{approve.data['approve']['asal_surat']}}
+													<b>{{approve.data['approve']['asal_surat']}} mengirim surat masuk</b><br />
+													{{approve.data['approve']['perihal']}}
 												</span> 
 												<span class="time">
 													{{approve.data['approve']['created_at']}}</span> 
 											</div>
 											<div class="notif-content" v-else-if="approve.data['disposisi']!==NULL">
 												<span class="block" >
-													Disposisi masuk baru dari kepala kantor
+													<b>Disposisi masuk baru</b><br />
 												</span>
 												<span class="time">{{approve.data['disposisi']['created_at']}}</span>  
 											</div>

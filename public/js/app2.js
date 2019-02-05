@@ -1802,6 +1802,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['approves']
 });
@@ -46799,9 +46800,16 @@ var render = function() {
                 approve.data["approve"] !== _vm.NULL
                   ? _c("div", { staticClass: "notif-content" }, [
                       _c("span", { staticClass: "block" }, [
+                        _c("b", [
+                          _vm._v(
+                            _vm._s(approve.data["approve"]["asal_surat"]) +
+                              " mengirim surat masuk"
+                          )
+                        ]),
+                        _c("br"),
                         _vm._v(
                           "\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                            _vm._s(approve.data["approve"]["asal_surat"]) +
+                            _vm._s(approve.data["approve"]["perihal"]) +
                             "\n\t\t\t\t\t\t\t\t\t\t\t\t"
                         )
                       ]),
@@ -46815,11 +46823,7 @@ var render = function() {
                     ])
                   : approve.data["disposisi"] !== _vm.NULL
                   ? _c("div", { staticClass: "notif-content" }, [
-                      _c("span", { staticClass: "block" }, [
-                        _vm._v(
-                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\tDisposisi masuk baru dari kepala kantor\n\t\t\t\t\t\t\t\t\t\t\t\t"
-                        )
-                      ]),
+                      _vm._m(1, true),
                       _vm._v(" "),
                       _c("span", { staticClass: "time" }, [
                         _vm._v(_vm._s(approve.data["disposisi"]["created_at"]))
@@ -46831,7 +46835,7 @@ var render = function() {
           ])
         }),
         _vm._v(" "),
-        _vm._m(1)
+        _vm._m(2)
       ],
       2
     )
@@ -46844,6 +46848,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "notif-icon notif-primary" }, [
       _c("i", { staticClass: "la la-envelope" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "block" }, [
+      _c("b", [_vm._v("Disposisi masuk baru")]),
+      _c("br")
     ])
   },
   function() {

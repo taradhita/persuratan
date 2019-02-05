@@ -70,7 +70,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                    {{ $suratmasuk->links('pagination.custom') }}
+                    {{ $disposisi->links('pagination.custom') }}
                     </div>
 
                 </div>

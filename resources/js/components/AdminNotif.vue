@@ -9,18 +9,32 @@
 									<div class="dropdown-title">You have {{suratkeluars.length}} new notification</div>
 								</li>
 								<li v-for="suratkeluar in suratkeluars">
-									<div class="notif-center">
+									<div class="notif-center" v-if="suratkeluar.data['suratkeluar']!==NULL">
 										<a href="#">
-											<div class="notif-icon notif-primary"> <i class="la la-send-o"></i> </div>
+										<div class="notif-icon notif-primary"> <i class="la la-send-o"></i> </div>
 											<div class="notif-content">
 												<span class="block">
-													<b>{{suratkeluar.data['suratkeluar']['perihal']}}</b><br />
-													Tujuan: {{suratkeluar.data['suratkeluar']['tujuan']}}
-												</span>
-												<span class="time">{{suratkeluar.data['suratkeluar']['created_at']}} </span> 
+													<b>(Kepada: {{suratkeluar.data['suratkeluar']['tujuan']}}) Telah Terkirim </b><br />
+													{{suratkeluar.data['suratkeluar']['perihal']}} 
+												</span> 
+												<span class="time">
+													{{suratkeluar.data['suratkeluar']['created_at']}}</span> 
 											</div>
 										</a>
 									</div>
+									<div class="notif-center" v-else-if="suratkeluar.data['tolak']!==NULL">
+										<a href="#">
+										<div class="notif-icon notif-danger"> <i class="la la-close"></i> </div>
+											<div class="notif-content">
+												<span class="block" >
+													<b>Surat masuk ditolak</b><br />
+													{{suratkeluar.data['tolak']['perihal']}}
+												</span>
+												<span class="time">{{suratkeluar.data['tolak']['created_at']}}</span>   
+											</div>
+										</a>
+									</div>
+											
 								</li>
 								
 								<li v-if="suratkeluars.length!=0">
