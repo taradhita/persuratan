@@ -8,6 +8,16 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
 	<link rel="stylesheet" href="{{ asset('css/ready.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/demo.css') }}">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<script>
+    	window.Laravel = <?php echo json_encode([
+        	'csrfToken' => csrf_token(),
+    	]); ?>
+	</script>
+
+	<script>
+     	window.Laravel.userId = <?php echo auth()->user()->id; ?>;
+	</script>
 
 </head>
 <body>
@@ -23,12 +33,13 @@
 				<button class="topbar-toggler more"><i class="la la-ellipsis-v"></i></button>
 			</div>
 			<nav class="navbar navbar-header navbar-expand-lg">
-				<div class="container-fluid">
+				<div class="container-fluid" id="app">
 					
 					
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+						<approve v-bind:approves="approves" ></approve>
 
-						<li class="nav-item dropdown hidden-caret">
+						<!--<li class="nav-item dropdown hidden-caret">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="la la-bell"></i>
 								<span class="notification">{{auth()->user()->unreadNotifications->count()}}</span>
@@ -69,7 +80,7 @@
 									<a class="see-all" href="javascript:void(0);"> <strong>Lihat Semua</strong> <i class="la la-angle-right"></i> </a>
 								</li>
 							</ul>
-						</li>
+						</li>-->
 						<li class="nav-item dropdown">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="/images/icons/user_icon.png" alt="user-img" width="36" class="img-circle"><span >{{Auth::user()->username}}</span></span> </a>
 							<ul class="dropdown-menu dropdown-user">
@@ -138,14 +149,12 @@
 							<a href="/user/surat-masuk">
 								<i class="la la-inbox"></i>
 								<p>Surat Masuk</p>
-								<span class="badge badge-count">14</span>
 							</a>
 						</li>
 						<li class="nav-item {{ $activeMenu == 'user.disposisi-masuk' ? 'active' : '' }}">
 							<a href="{{route('user.disposisi-masuk')}}">
 								<i class="la la-file-text"></i>
 								<p>Disposisi Masuk</p>
-								<span class="badge badge-count">14</span>
 							</a>
 						</li>
 						<li class="nav-item {{ $activeMenu == 'user.surat-keluar' ? 'active' : '' }}">
@@ -167,12 +176,13 @@
 			</div>
 		</div>
 	</div>
+	<script src="{{ asset('js/app2.js') }}"></script>
 
 </body>
-<script src="{{ asset('js/core/jquery.3.2.1.min.js') }}"></script>
+<!--<script src="{{ asset('js/core/jquery.3.2.1.min.js') }}"></script>-->
 <script src="{{ asset('js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('js/core/popper.min.js') }}"></script>
-<script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
+<!--<script src="{{ asset('js/core/bootstrap.min.js') }}"></script>-->
 <script src="{{ asset('js/plugin/chartist/chartist.min.js') }}"></script>
 <script src="{{ asset('js/plugin/chartist/plugin/chartist-plugin-tooltip.min.js') }}"></script>
 <script src="{{ asset('js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script>

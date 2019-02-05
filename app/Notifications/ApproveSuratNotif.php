@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 
 class ApproveSuratNotif extends Notification
 {
@@ -30,10 +31,17 @@ class ApproveSuratNotif extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database','broadcast'];
     }
 
     public function toDatabase($notifiable)
+    {
+        return [
+            'approve' => $this->approve,
+        ];
+    }
+
+    public function toBroadcast($notifiable)
     {
         return [
             'approve' => $this->approve,

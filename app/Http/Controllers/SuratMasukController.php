@@ -12,7 +12,7 @@ use App\Notifications\SuratMasukBaru;
 class SuratMasukController extends Controller
 {
     public function index(){
-    	$suratmasuk = SuratMasuk::orderBy('id', 'desc')->get();
+    	$suratmasuk = SuratMasuk::orderBy('id', 'desc')->paginate(15);
     	return view('admin.admin-dashboard.admin-surat-masuk',compact('suratmasuk'));
     }
 

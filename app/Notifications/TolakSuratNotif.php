@@ -8,19 +8,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\BroadcastMessage;
 
-class DisposisiNotif extends Notification
+class TolakSuratNotif extends Notification
 {
     use Queueable;
-    protected $disposisi;
+    protected $tolak;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($disposisi)
+    public function __construct($tolak)
     {
-        $this->disposisi=$disposisi;
+        $this->tolak = $tolak;
     }
 
     /**
@@ -31,8 +31,23 @@ class DisposisiNotif extends Notification
      */
     public function via($notifiable)
     {
-        return ['database', 'broadcast'];
+        return ['database','broadcast'];
     }
+
+    public function toDatabase($notifiable)
+    {
+        return [
+            'tolak' => $this->tolak,
+        ];
+    }
+
+    public function toBroadcast($notifiable)
+    {
+        return [
+            'tolak' => $this->tolak,
+        ];
+    }
+
 
     /**
      * Get the mail representation of the notification.
@@ -60,16 +75,4 @@ class DisposisiNotif extends Notification
             //
         ];
     }*/
-
-    public function toDatabase($notifiable){
-        return [
-            'disposisi' => $this->disposisi,
-        ];
-    }
-
-    public function toBroadcast($notifiable){
-        return [
-            'disposisi' => $this->disposisi,
-        ];
-    }
 }

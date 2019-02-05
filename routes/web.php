@@ -45,6 +45,9 @@ Route::get('/admin/arsip', function () {
 Route::get('admin/{admin}/edit',  ['as' => 'admin.edit', 'uses' => 'UpdateAdminController@edit'])->middleware('auth:admin');
 Route::put('admin/{admin}',  ['as' => 'admin.update', 'uses' => 'UpdateAdminController@update']);
 
+Route::post('/admin/notif', 'SuratKeluarController@notif')->middleware('auth:admin');
+Route::post('/admin/markall', 'SuratKeluarController@markAllAsRead')->middleware('auth:admin');
+
 //yang ini khusus test user dashboard view, nanti route diganti!!!!!
 Route::get('/user', function () {
     return view('user-dashboard/user-home');
@@ -58,6 +61,7 @@ Route::get('/user/disposisi-masuk', ['as' => 'user.disposisi-masuk', 'uses' => '
 Route::get('user/{user}/edit',  ['as' => 'user.edit', 'uses' => 'UpdateUserController@edit'])->middleware('auth');
 Route::put('user/{user}',  ['as' => 'user.update', 'uses' => 'UpdateUserController@update']);
 Route::resource('/user/surat-keluar','SuratKeluarController')->middleware('auth');
+Route::post('/user/notif', 'ApproveSuratController@notif')->middleware('auth');
 
 Route::get('/superadmin', function () {
     return view('superadmin/superadmin-dashboard/superadmin-home');

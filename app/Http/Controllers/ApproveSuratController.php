@@ -10,12 +10,14 @@ use DB;
 use App\User;
 use Illuminate\Support\Facades\Input;
 use App\Notifications\ApproveSuratNotif;
+use App\Notifications\TolakSuratNotif;
+use App\Admin;
 
 class ApproveSuratController extends Controller
 {
     public function index(){
         $u = Auth::user();
-    	$suratmasuk = SuratMasuk::where('status','pending')->where('tujuan','=',$u->id)->orderBy('id', 'desc')->get();
+    	$suratmasuk = SuratMasuk::where('status','pending')->where('tujuan','=',$u->id)->orderBy('id', 'desc')->paginate(15);
     	return view('superadmin.superadmin-dashboard.superadmin-surat-masuk',compact('suratmasuk'));
     }
 
@@ -37,15 +39,23 @@ class ApproveSuratController extends Controller
     	//return redirect('/superadmin/surat-masuk');
     }
 
+    public function notif(){
+        return auth()->user()->unreadNotifications;
+    }
+
+    public function markAllAsRead(){
+        auth()->user()->unreadNotifications->markAsRead();
+    }
+
     public function suratDiterima(){
         $u = Auth::user();
-        $suratmasuk = SuratMasuk::where('status','diterima')->where('tujuan','=', $u->id)->orderBy('id', 'desc')->get();
+        $suratmasuk = SuratMasuk::where('status','diterima')->where('tujuan','=', $u->id)->orderBy('id', 'desc')->paginate(15);
         return view('user-dashboard.user-surat-masuk',compact('suratmasuk'));
     }
 
     public function disposisiMasuk(){
         $u = Auth::user();
-        $disposisi = Disposisi::where('tujuan_disposisi', '=', $u->id)->orderBy('id', 'desc')->get();
+        $disposisi = Disposisi::where('tujuan_disposisi', '=', $u->id)->orderBy('id', 'desc')->paginate(15);
         return view('user-dashboard.disposisi-masuk',compact('disposisi'));
     }
 

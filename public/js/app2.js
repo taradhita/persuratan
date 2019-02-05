@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1754,10 +1754,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SuratMasukNotif.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SuratMasukNotif.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/UserNotif.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/UserNotif.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1797,15 +1797,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['suratmasuks'],
-  methods: {
-    markAllAsRead: function markAllAsRead() {
-      axios.post('/superadmin/markall').then(function (response) {
-        window.location.href = "/superadmin";
-      });
-    }
-  }
+  props: ['approves']
 });
 
 /***/ }),
@@ -46739,10 +46737,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SuratMasukNotif.vue?vue&type=template&id=4dbbcf7a&":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SuratMasukNotif.vue?vue&type=template&id=4dbbcf7a& ***!
-  \******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/UserNotif.vue?vue&type=template&id=141a29ca&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/UserNotif.vue?vue&type=template&id=141a29ca& ***!
+  \************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -46772,7 +46770,7 @@ var render = function() {
         _c("i", { staticClass: "la la-bell" }),
         _vm._v(" "),
         _c("span", { staticClass: "notification" }, [
-          _vm._v(_vm._s(_vm.suratmasuks.length))
+          _vm._v(_vm._s(_vm.approves.length))
         ])
       ]
     ),
@@ -46787,57 +46785,51 @@ var render = function() {
         _c("li", [
           _c("div", { staticClass: "dropdown-title" }, [
             _vm._v(
-              "You have " + _vm._s(_vm.suratmasuks.length) + " new notification"
+              "You have " + _vm._s(_vm.approves.length) + " new notification"
             )
           ])
         ]),
         _vm._v(" "),
-        _vm._l(_vm.suratmasuks, function(suratmasuk) {
+        _vm._l(_vm.approves, function(approve) {
           return _c("li", [
             _c("div", { staticClass: "notif-center" }, [
               _c("a", { attrs: { href: "#" } }, [
                 _vm._m(0, true),
                 _vm._v(" "),
-                _c("div", { staticClass: "notif-content" }, [
-                  _c("span", { staticClass: "block" }, [
-                    _vm._v(
-                      "\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                        _vm._s(suratmasuk.data["suratmasuk"]["asal_surat"]) +
-                        " mengirim surat masuk \n\t\t\t\t\t\t\t\t\t\t\t\t"
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "time" }, [
-                    _vm._v(
-                      _vm._s(suratmasuk.data["suratmasuk"]["created_at"]) + " "
-                    )
-                  ])
-                ])
+                approve.data["approve"] !== _vm.NULL
+                  ? _c("div", { staticClass: "notif-content" }, [
+                      _c("span", { staticClass: "block" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                            _vm._s(approve.data["approve"]["asal_surat"]) +
+                            "\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "time" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                            _vm._s(approve.data["approve"]["created_at"])
+                        )
+                      ])
+                    ])
+                  : approve.data["disposisi"] !== _vm.NULL
+                  ? _c("div", { staticClass: "notif-content" }, [
+                      _c("span", { staticClass: "block" }, [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\tDisposisi masuk baru dari kepala kantor\n\t\t\t\t\t\t\t\t\t\t\t\t"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "time" }, [
+                        _vm._v(_vm._s(approve.data["disposisi"]["created_at"]))
+                      ])
+                    ])
+                  : _vm._e()
               ])
             ])
           ])
         }),
-        _vm._v(" "),
-        _vm.suratmasuks.length != 0
-          ? _c("li", [
-              _c(
-                "a",
-                {
-                  staticClass: "see-all",
-                  attrs: { href: "#" },
-                  on: {
-                    click: function($event) {
-                      _vm.markAllAsRead()
-                    }
-                  }
-                },
-                [
-                  _vm._v(" Tandai Semua sebagai Dibaca "),
-                  _c("i", { staticClass: "la la-angle-right" })
-                ]
-              )
-            ])
-          : _vm._e(),
         _vm._v(" "),
         _vm._m(1)
       ],
@@ -46851,7 +46843,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "notif-icon notif-primary" }, [
-      _c("i", { staticClass: "la la-user-plus" })
+      _c("i", { staticClass: "la la-envelope" })
     ])
   },
   function() {
@@ -58128,10 +58120,10 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
+/***/ "./resources/js/app2.js":
+/*!******************************!*\
+  !*** ./resources/js/app2.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -58162,26 +58154,26 @@ window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jqu
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('suratmasuk', __webpack_require__(/*! ./components/SuratMasukNotif.vue */ "./resources/js/components/SuratMasukNotif.vue").default);
+Vue.component('approve', __webpack_require__(/*! ./components/UserNotif.vue */ "./resources/js/components/UserNotif.vue").default);
 var app = new Vue({
   el: '#app',
   data: {
-    suratmasuks: ''
+    approves: ''
   },
   created: function created() {
     var _this = this;
 
     if (window.Laravel.userId) {
-      axios.post('/superadmin/notif').then(function (response) {
-        _this.suratmasuks = response.data;
+      axios.post('/user/notif').then(function (response) {
+        _this.approves = response.data;
         console.log(response.data);
       });
-      Echo.private('App.Superadmin.' + window.Laravel.userId).notification(function (response) {
+      Echo.private('App.User.' + window.Laravel.userId).notification(function (response) {
         data = {
           "data": response
         };
 
-        _this.suratmasuks.push(data);
+        _this.approves.push(data);
 
         console.log(response);
       });
@@ -58254,17 +58246,17 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
 
 /***/ }),
 
-/***/ "./resources/js/components/SuratMasukNotif.vue":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/SuratMasukNotif.vue ***!
-  \*****************************************************/
+/***/ "./resources/js/components/UserNotif.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/UserNotif.vue ***!
+  \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _SuratMasukNotif_vue_vue_type_template_id_4dbbcf7a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SuratMasukNotif.vue?vue&type=template&id=4dbbcf7a& */ "./resources/js/components/SuratMasukNotif.vue?vue&type=template&id=4dbbcf7a&");
-/* harmony import */ var _SuratMasukNotif_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SuratMasukNotif.vue?vue&type=script&lang=js& */ "./resources/js/components/SuratMasukNotif.vue?vue&type=script&lang=js&");
+/* harmony import */ var _UserNotif_vue_vue_type_template_id_141a29ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserNotif.vue?vue&type=template&id=141a29ca& */ "./resources/js/components/UserNotif.vue?vue&type=template&id=141a29ca&");
+/* harmony import */ var _UserNotif_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserNotif.vue?vue&type=script&lang=js& */ "./resources/js/components/UserNotif.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -58274,9 +58266,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _SuratMasukNotif_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _SuratMasukNotif_vue_vue_type_template_id_4dbbcf7a___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _SuratMasukNotif_vue_vue_type_template_id_4dbbcf7a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _UserNotif_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UserNotif_vue_vue_type_template_id_141a29ca___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UserNotif_vue_vue_type_template_id_141a29ca___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -58286,63 +58278,51 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/SuratMasukNotif.vue"
+component.options.__file = "resources/js/components/UserNotif.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/SuratMasukNotif.vue?vue&type=script&lang=js&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/components/SuratMasukNotif.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************/
+/***/ "./resources/js/components/UserNotif.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/UserNotif.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratMasukNotif_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./SuratMasukNotif.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SuratMasukNotif.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratMasukNotif_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserNotif_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./UserNotif.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/UserNotif.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserNotif_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/SuratMasukNotif.vue?vue&type=template&id=4dbbcf7a&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/components/SuratMasukNotif.vue?vue&type=template&id=4dbbcf7a& ***!
-  \************************************************************************************/
+/***/ "./resources/js/components/UserNotif.vue?vue&type=template&id=141a29ca&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/UserNotif.vue?vue&type=template&id=141a29ca& ***!
+  \******************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratMasukNotif_vue_vue_type_template_id_4dbbcf7a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./SuratMasukNotif.vue?vue&type=template&id=4dbbcf7a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SuratMasukNotif.vue?vue&type=template&id=4dbbcf7a&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratMasukNotif_vue_vue_type_template_id_4dbbcf7a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserNotif_vue_vue_type_template_id_141a29ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./UserNotif.vue?vue&type=template&id=141a29ca& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/UserNotif.vue?vue&type=template&id=141a29ca&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserNotif_vue_vue_type_template_id_141a29ca___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratMasukNotif_vue_vue_type_template_id_4dbbcf7a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserNotif_vue_vue_type_template_id_141a29ca___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/***/ 1:
+/*!************************************!*\
+  !*** multi ./resources/js/app2.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/nadiataradhita/persuratan/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/nadiataradhita/persuratan/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /Users/nadiataradhita/persuratan/resources/js/app2.js */"./resources/js/app2.js");
 
 
 /***/ })

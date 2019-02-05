@@ -11,7 +11,7 @@ use App\Notifications\SuratKeluarNotif;
 class SuratKeluarController extends Controller
 {
     public function index(){
-		$suratkeluar = SuratKeluar::orderBy('id', 'desc')->get();
+		$suratkeluar = SuratKeluar::orderBy('id', 'desc')->paginate(15);
     	return view('user-dashboard.user-surat-keluar',compact('suratkeluar'));
     }
 
@@ -44,6 +44,14 @@ class SuratKeluarController extends Controller
         $keluar = Admin::all();
         \Notification::send($keluar, new SuratKeluarNotif(SuratKeluar::latest('id')->first()));
         return redirect('/user/surat-keluar');
+    }
+
+    public function notif(){
+        return auth()->user()->unreadNotifications;
+    }
+
+    public function markAllAsRead(){
+        auth()->user()->unreadNotifications->markAsRead();
     }
 
 }

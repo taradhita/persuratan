@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 
 class SuratKeluarNotif extends Notification
 {
@@ -30,7 +31,7 @@ class SuratKeluarNotif extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database','broadcast'];
     }
 
     /**
@@ -61,6 +62,13 @@ class SuratKeluarNotif extends Notification
     }*/
 
     public function toDatabase($notifiable){
+        return [
+            'suratkeluar' => $this->skeluar,
+        ];
+    }
+
+    public function toBroadcast($notifiable)
+    {
         return [
             'suratkeluar' => $this->skeluar,
         ];
