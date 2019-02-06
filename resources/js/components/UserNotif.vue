@@ -31,9 +31,8 @@
 								</li>
 								
 
-								<li>
-									<a class="see-all" href="#"> <strong>See all notifications</strong> <i class="la la-angle-right"></i> </a>
-								</li>
+					
+
 							</ul>
 						</li>
 </template>
