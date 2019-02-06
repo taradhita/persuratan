@@ -145,6 +145,12 @@
 								<p>Disposisi</p>
 							</a>
 						</li>
+						<li class="nav-item {{ $activeMenu == 'admin.arsip' ? 'active' : '' }}">
+							<a href="/superadmin/arsip">
+								<i class="la la-archive"></i>
+								<p>Arsip Surat</p>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>

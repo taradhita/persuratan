@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 
 //ADMIN ROUTE
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin'], function () {
 // Login Routes...
     Route::get('login', ['as' => 'admin.login', 'uses' => 'AdminAuth\LoginController@showLoginForm']);
     Route::post('login', ['as' => 'admin.login.post', 'uses' => 'AdminAuth\LoginController@login']);
@@ -42,8 +42,8 @@ Route::get('/admin/arsip', function () {
     return view('admin/admin-dashboard/admin-arsip');
 })->middleware('auth:admin');
 
-Route::get('admin/{admin}/edit',  ['as' => 'admin.edit', 'uses' => 'UpdateAdminController@edit'])->middleware('auth:admin');
-Route::put('admin/{admin}',  ['as' => 'admin.update', 'uses' => 'UpdateAdminController@update']);
+Route::get('admin/{admin}/edit', ['as' => 'admin.edit', 'uses' => 'UpdateAdminController@edit'])->middleware('auth:admin');
+Route::put('admin/{admin}', ['as' => 'admin.update', 'uses' => 'UpdateAdminController@update']);
 
 Route::post('/admin/notif', 'SuratKeluarController@notif')->middleware('auth:admin');
 Route::post('/admin/markall', 'SuratKeluarController@markAllAsRead')->middleware('auth:admin');
@@ -58,26 +58,26 @@ Route::get('/user/surat-keluar', function () {
 })->middleware('auth');
 Route::get('/user/surat-masuk', 'ApproveSuratController@suratDiterima')->middleware('auth');
 Route::get('/user/disposisi-masuk', ['as' => 'user.disposisi-masuk', 'uses' => 'ApproveSuratController@disposisiMasuk'])->middleware('auth');
-Route::get('user/{user}/edit',  ['as' => 'user.edit', 'uses' => 'UpdateUserController@edit'])->middleware('auth');
-Route::put('user/{user}',  ['as' => 'user.update', 'uses' => 'UpdateUserController@update']);
-Route::resource('/user/surat-keluar','SuratKeluarController')->middleware('auth');
+Route::get('user/{user}/edit', ['as' => 'user.edit', 'uses' => 'UpdateUserController@edit'])->middleware('auth');
+Route::put('user/{user}', ['as' => 'user.update', 'uses' => 'UpdateUserController@update']);
+Route::resource('/user/surat-keluar', 'SuratKeluarController')->middleware('auth');
 Route::post('/user/notif', 'ApproveSuratController@notif')->middleware('auth');
 
 Route::get('/superadmin', function () {
     return view('superadmin/superadmin-dashboard/superadmin-home');
 })->name('superadmin')->middleware('auth:superadmin');
-Route::get('/superadmin/surat-masuk','ApproveSuratController@index')->middleware('auth:superadmin');
-Route::put('/superadmin/surat-masuk/{surat_masuk}',['as' => 'superadmin.surat-masuk.update', 'uses' => 'ApproveSuratController@update'])->middleware('auth:superadmin');
+Route::get('/superadmin/surat-masuk', 'ApproveSuratController@index')->middleware('auth:superadmin');
+Route::put('/superadmin/surat-masuk/{surat_masuk}', ['as' => 'superadmin.surat-masuk.update', 'uses' => 'ApproveSuratController@update'])->middleware('auth:superadmin');
 Route::post('/superadmin/notif', 'SuratMasukController@notif')->middleware('auth:superadmin');
 Route::post('/superadmin/markall', 'SuratMasukController@markAllAsRead')->middleware('auth:superadmin');
 
 //Route::get('/superadmin/disposisi');
 
-Route::get('superadmin/{superadmin}/edit',  ['as' => 'superadmin.edit', 'uses' => 'UpdateSuperadminController@edit'])->middleware('auth:superadmin');
-Route::put('superadmin/{superadmin}',  ['as' => 'superadmin.update', 'uses' => 'UpdateSuperadminController@update']);
+Route::get('superadmin/{superadmin}/edit', ['as' => 'superadmin.edit', 'uses' => 'UpdateSuperadminController@edit'])->middleware('auth:superadmin');
+Route::put('superadmin/{superadmin}', ['as' => 'superadmin.update', 'uses' => 'UpdateSuperadminController@update']);
 
 //SUPERADMIN ROUTE
-Route::group(['prefix' => 'superadmin'], function() {
+Route::group(['prefix' => 'superadmin'], function () {
 // Login Routes...
     Route::get('login', ['as' => 'superadmin.login', 'uses' => 'SuperadminAuth\LoginController@showLoginForm']);
     Route::post('login', ['as' => 'superadmin.login.post', 'uses' => 'SuperadminAuth\LoginController@login']);
@@ -93,5 +93,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('disposisi','DisposisiController')->middleware('auth:superadmin');
-Route::get('file/{id}','DisposisiController@getFile');
+Route::resource('disposisi', 'DisposisiController')->middleware('auth:superadmin');
+Route::get('file/{id}', 'DisposisiController@getFile');
+Route::get('admin/arsip/detail', 'ArsipController@arsip')->name('arsip.detail')->middleware('auth:admin');
+
+Route::get('/superadmin/arsip', function () {
+    return view('superadmin/superadmin-dashboard/superadmin-arsip');
+})->middleware('auth:superadmin');
+Route::get('superadmin/arsip/detail', 'ArsipController@arsipSuperAdmin')->name('arsipSuperAdmin.detail')->middleware('auth:superadmin');

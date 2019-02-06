@@ -33,7 +33,8 @@ class SuratKeluarController extends Controller
         $suratkeluar->tanggal = $request->tanggal;
         $suratkeluar->tujuan = $request->tujuan;
         $suratkeluar->asal_surat = $request->asal_surat;
-        $suratkeluar->perihal = $request->perihal;
+        $suratkeluar->lampiran = $request->perihal;
+        $suratkeluar->status = "Pending";
         $file = $request->file('file_surat');
         if(!empty($file)){
         	$filename =  "Surat-Keluar_" . rand(10,1000) . "_" . date('m-d-Y', time()) . '.' . $file->getClientOriginalExtension();

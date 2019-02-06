@@ -1,4 +1,4 @@
-@extends('layouts.admin-layout',['activeMenu' => 'admin.arsip'])
+@extends('layouts.superadmin-layout',['activeMenu' => 'superadmin.arsip'])
 @section('content')
     <h4 class="page-title">Arsip Surat</h4>
     <div class="row">
@@ -19,7 +19,7 @@
                                         <div class="col-8 d-flex align-items-center">
                                             <div class="numbers">
                                                 <p class="card-category">Seksi</p>
-                                                <a href="{{route('arsip.detail',['seksi' => 'Infrastruktur Pertanahan'])}}"
+                                                <a href="{{route('arsipSuperAdmin.detail',['seksi' => 'Infrastruktur Pertanahan'])}}"
                                                    class="card-title">Infrastruktur Pertanahan</a>
                                             </div>
                                         </div>

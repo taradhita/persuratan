@@ -55,7 +55,8 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         @if(pathinfo($d->file_disposisi,PATHINFO_EXTENSION) == 'pdf')
-                                                            <a class="btn btn-primary" href="{{url('storage/disposisi/'. $d->file_disposisi)}}">Download</a>
+                                                            <a class="btn btn-primary"
+                                                               href="{{url('storage/disposisi/'. $d->file_disposisi)}}">Download</a>
                                                         @endif
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Close
@@ -70,7 +71,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                    {{ $disposisi->links('pagination.custom') }}
+                        {{ $disposisi->links('pagination.custom') }}
                     </div>
 
                 </div>
