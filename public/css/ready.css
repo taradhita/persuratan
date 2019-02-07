@@ -5457,6 +5457,10 @@ body {
   width: 200px;
 }
 
+.input-group {
+  padding-bottom: 15px;
+}
+
 .form-control.input-full {
   width: 100% !important;
 }

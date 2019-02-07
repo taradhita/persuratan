@@ -20,6 +20,7 @@
 	</script>
 
 
+
 </head>
 <body>
 	<div class="wrapper">
@@ -167,7 +168,6 @@
 
 	<script src="{{ asset('js/app.js') }}"></script>
 
-
 </body>
 
 <!--<script src="{{ asset('js/core/jquery.3.2.1.min.js') }}"></script>-->
@@ -180,7 +180,6 @@
 <script src="{{ asset('js/plugin/bootstrap-toggle/bootstrap-toggle.min.js') }}"></script>
 <script src="{{ asset('js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
 <script src="{{ asset('js/ready.min.js') }}"></script>
-
 
 
 <script>
@@ -198,5 +197,7 @@
 		});
 	} );
 </script>
+
+
 
 </html>

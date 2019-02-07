@@ -29,7 +29,9 @@
 										</a>
 									</div>
 								</li>
-								
+								<li v-if="approve.length!=0">
+									<a class="see-all" href="#" v-on:click="markAllAsRead()"> Tandai Semua sebagai Dibaca <i class="la la-angle-right"></i> </a>
+								</li>
 
 					
 
@@ -40,6 +42,13 @@
 <script>
 export default{
 	props:['approves'],
+	methods: {
+		markAllAsRead:function(){
+			axios.post('/user/markall').then(response=>{
+				window.location.href="/user";
+			});
+		}
+	}
 	
 };
 </script>

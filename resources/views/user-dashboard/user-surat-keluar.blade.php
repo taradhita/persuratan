@@ -8,8 +8,17 @@
 				<h4 class="card-title">Daftar Surat Keluar</h4>
 			</div>
 			<div class="card-body">
+				<form action="/user/surat-keluar/search" method="get">
+					<label>Search by date</label>
+					<div class="input-group">
+    					<input type="date" class="form-control col-md-3" name="searchdate"> 
+    					<div class="input-group-btn">
+        					<button type="submit" class="btn btn-primary">Search</button> 
+    					</div>
+					</div>
+				</form>
 				<p class="demo">
-					<a href="/user/surat-keluar/create" class="btn btn-primary">Upload Surat</a>
+					<a style = "text-align:right;" href="/user/surat-keluar/create" class="btn btn-primary">Upload Surat</a>
 					<div class="table-responsive">
 					<table class="table table-bordered">
 						<thead>

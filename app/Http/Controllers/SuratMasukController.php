@@ -8,6 +8,7 @@ use App\User;
 use Storage;
 use App\Superadmin;
 use App\Notifications\SuratMasukBaru;
+use DB;
 
 class SuratMasukController extends Controller
 {
@@ -48,10 +49,6 @@ class SuratMasukController extends Controller
         $approve = Superadmin::all();
         \Notification::send($approve, new SuratMasukBaru(SuratMasuk::latest('id')->first()));
         return redirect('/admin/surat-masuk');
-        
-        
-        
-        
 
     }
 
@@ -61,6 +58,12 @@ class SuratMasukController extends Controller
 
     public function markAllAsRead(){
         auth()->user()->unreadNotifications->markAsRead();
+    }
+
+    public function search(Request $request){
+        $search = $request->get('searchdate');
+        $suratmasuk = SuratMasuk::where('tanggal','like','%'.$search.'%')->paginate(15);
+        return view('admin.admin-dashboard.admin-surat-masuk',compact('suratmasuk'));
     }
 
     public function edit(SuratMasuk $surat_masuk){

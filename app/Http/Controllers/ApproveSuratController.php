@@ -16,8 +16,8 @@ use App\Admin;
 class ApproveSuratController extends Controller
 {
     public function index(){
-        $u = Auth::user();
-    	$suratmasuk = SuratMasuk::where('status','pending')->where('tujuan','=',$u->id)->orderBy('id', 'desc')->paginate(15);
+        //$u = Auth::user();
+    	$suratmasuk = SuratMasuk::where('status','pending')->orderBy('id', 'desc')->paginate(15);
     	return view('superadmin.superadmin-dashboard.superadmin-surat-masuk',compact('suratmasuk'));
     }
 
@@ -47,6 +47,12 @@ class ApproveSuratController extends Controller
 
     public function markAllAsRead(){
         auth()->user()->unreadNotifications->markAsRead();
+    }
+
+    public function search(Request $request){
+        $search = $request->get('searchdate');
+        $suratmasuk = SuratMasuk::where('status','pending')->where('tanggal','like','%'.$search.'%')->paginate(15);
+        return view('superadmin.superadmin-dashboard.superadmin-surat-masuk',compact('suratmasuk'));
     }
 
     public function suratDiterima(){

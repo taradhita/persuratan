@@ -17,7 +17,7 @@
                             <th>Tanggal</th>
                             <th>Tujuan</th>
                             <th>Asal Surat</th>
-                            <th>Lampiran</th>
+                            <th>Perihal</th>
                             <th>Status</th>
                             <th>File Surat</th>
                         </tr>
@@ -29,8 +29,7 @@
                                 <td>{{$keluar->tanggal}}</td>
                                 <td>{{$keluar->tujuan}}</td>
                                 <td>{{$keluar->nama}}</td>
-                                <td>{{$keluar->lampiran}}</td>
-                                <td>{{$keluar->status}}</td>
+                                <td>{{$keluar->perihal}}</td>
                                 <td>
                                     <button class="btn btn-primary" data-toggle="modal"
                                             data-target="#modalView1{{$keluar->no_surat}}">Lihat

@@ -8,6 +8,15 @@
 				<h4 class="card-title">Daftar Surat Masuk</h4>
 			</div>
 			<div class="card-body">
+				<form action="/user/surat-masuk/search" method="get">
+					<label>Search by date</label>
+					<div class="input-group">
+    					<input type="date" class="form-control col-md-3" name="searchdate"> 
+    					<div class="input-group-btn">
+        					<button type="submit" class="btn btn-primary">Search</button> 
+    					</div>
+					</div>
+				</form>
 				<p class="demo">
 					<div class="table-responsive">
 					<table class="table table-bordered">
