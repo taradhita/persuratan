@@ -62,7 +62,7 @@
                                                                href="{{url('images/surat_keluar/'. $keluar->file_surat)}}">Download</a>
                                                         @endif
 =======
-                                                    <div class="modal-body text-center">                                    
+                                                    <div class="modal-body text-center">
                                                     <img src="/images/surat_keluar/{{$keluar->file_surat}}" width="85%;" >
                                                 </div>
                                                 <div class="modal-footer">
@@ -143,7 +143,7 @@
                                                                href="{{url('images/surat_keluar/'. $masuk->file_surat)}}">Download</a>
                                                         @endif
 =======
-                                                    <div class="modal-body text-center">                                    
+                                                    <div class="modal-body text-center">
                                                     <img src="/images/surat_masuk/{{$masuk->file_surat}}" width="85%;" >
                                                 </div>
                                                 <div class="modal-footer">

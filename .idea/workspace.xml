@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d7675ff-86d5-477e-a9d1-39985fa1361c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ArsipController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ArsipController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/admin-dashboard/admin-cari-arsip.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admin-dashboard/admin-cari-arsip.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/superadmin/superadmin-dashboard/superadmin-cari-arsip.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/superadmin/superadmin-dashboard/superadmin-cari-arsip.blade.php" afterDir="false" />
@@ -31,8 +30,8 @@
       <file leaf-file-name="ArsipController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ArsipController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="48" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
+            <state relative-caret-position="170">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -43,7 +42,7 @@
       <file leaf-file-name="admin-arsip.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/admin-dashboard/admin-arsip.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1020">
+            <state relative-caret-position="-932">
               <caret line="21" column="99" lean-forward="true" selection-start-line="21" selection-start-column="99" selection-end-line="21" selection-end-column="99" />
             </state>
           </provider>
@@ -67,22 +66,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="110" column="95" selection-start-line="110" selection-start-column="80" selection-end-line="110" selection-end-column="95" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin-cari-arsip.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin-cari-arsip.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/admin-dashboard/admin-cari-arsip.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="127" column="95" selection-start-line="127" selection-start-column="95" selection-end-line="127" selection-end-column="95" />
+            <state relative-caret-position="68">
+              <caret line="134" selection-start-line="134" selection-end-line="134" />
               <folding>
-                <element signature="e#3422#3455#0#HTML" expanded="true" />
+                <element signature="e#420#440#0#HTML" expanded="true" />
+                <element signature="e#3195#3202#1#HTML" expanded="true" />
+                <element signature="e#3744#3777#0#HTML" expanded="true" />
+                <element signature="e#7922#7929#1#HTML" expanded="true" />
+                <element signature="e#8463#8496#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,14 +100,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="superadmin-cari-arsip.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="superadmin-cari-arsip.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/superadmin/superadmin-dashboard/superadmin-cari-arsip.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="133" column="97" selection-start-line="133" selection-start-column="97" selection-end-line="133" selection-end-column="97" />
+            <state relative-caret-position="326">
+              <caret line="129" column="12" lean-forward="true" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="12" />
               <folding>
-                <element signature="e#3477#3510#0#HTML" expanded="true" />
+                <element signature="e#2768#2775#1#HTML" expanded="true" />
+                <element signature="e#3341#3374#0#HTML" expanded="true" />
+                <element signature="e#8163#8170#1#HTML" expanded="true" />
+                <element signature="e#8728#8761#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin-surat-masuk.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/admin-dashboard/admin-surat-masuk.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-640">
+              <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -123,6 +129,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>admin/arsip</find>
+      <find>HEAD</find>
+      <find>head</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,9 +152,9 @@
         <option value="$PROJECT_DIR$/resources/views/layouts/superadmin-layout.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/superadmin/superadmin-dashboard/superadmin-arsip.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/superadmin/superadmin-dashboard/superadmin-cari-arsip.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ArsipController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/admin-dashboard/admin-cari-arsip.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/superadmin/superadmin-dashboard/superadmin-cari-arsip.blade.php" />
       </list>
     </option>
   </component>
@@ -276,6 +284,24 @@
             <path>
               <item name="persuratan" type="b2602c69:ProjectViewProjectNode" />
               <item name="persuratan" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="persuratan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="persuratan" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="persuratan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="persuratan" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="persuratan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="persuratan" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -307,22 +333,15 @@
               <item name="persuratan" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="superadmin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="persuratan" type="b2602c69:ProjectViewProjectNode" />
               <item name="persuratan" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="superadmin" type="462c0819:PsiDirectoryNode" />
-              <item name="superadmin-dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="persuratan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="persuratan" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="user-dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin-dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -370,12 +389,12 @@
       <workItem from="1548764706443" duration="4319000" />
       <workItem from="1548773974454" duration="3688000" />
       <workItem from="1549240008885" duration="838000" />
-      <workItem from="1549463826694" duration="10325000" />
+      <workItem from="1549463826694" duration="11311000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28024000" />
+    <option name="totallyTimeSpent" value="29010000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -570,13 +589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin-dashboard/admin-surat-masuk.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-708">
-          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/user-layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3020" />
@@ -662,23 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ArsipController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="48" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin-dashboard/admin-arsip.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1020">
-          <caret line="21" column="99" lean-forward="true" selection-start-line="21" selection-start-column="99" selection-end-line="21" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/admin-layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -693,22 +688,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin-dashboard/admin-cari-arsip.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/superadmin/superadmin-dashboard/superadmin-cari-arsip.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="127" column="95" selection-start-line="127" selection-start-column="95" selection-end-line="127" selection-end-column="95" />
+        <state relative-caret-position="326">
+          <caret line="129" column="12" lean-forward="true" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="12" />
           <folding>
-            <element signature="e#3422#3455#0#HTML" expanded="true" />
+            <element signature="e#2768#2775#1#HTML" expanded="true" />
+            <element signature="e#3341#3374#0#HTML" expanded="true" />
+            <element signature="e#8163#8170#1#HTML" expanded="true" />
+            <element signature="e#8728#8761#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/superadmin/superadmin-dashboard/superadmin-cari-arsip.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin-dashboard/admin-surat-masuk.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="133" column="97" selection-start-line="133" selection-start-column="97" selection-end-line="133" selection-end-column="97" />
+        <state relative-caret-position="-640">
+          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin-dashboard/admin-arsip.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-932">
+          <caret line="21" column="99" lean-forward="true" selection-start-line="21" selection-start-column="99" selection-end-line="21" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ArsipController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
           <folding>
-            <element signature="e#3477#3510#0#HTML" expanded="true" />
+            <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin-dashboard/admin-cari-arsip.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="134" selection-start-line="134" selection-end-line="134" />
+          <folding>
+            <element signature="e#420#440#0#HTML" expanded="true" />
+            <element signature="e#3195#3202#1#HTML" expanded="true" />
+            <element signature="e#3744#3777#0#HTML" expanded="true" />
+            <element signature="e#7922#7929#1#HTML" expanded="true" />
+            <element signature="e#8463#8496#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
