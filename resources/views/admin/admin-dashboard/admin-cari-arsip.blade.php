@@ -1,9 +1,5 @@
 @extends('layouts.admin-layout',['activeMenu' => 'admin.arsip'])
 @section('content')
-    {{--<<<<<<< HEAD--}}
-    {{--=======--}}
-
-    {{-->>>>>>> ba1a664767f27bd77a5c8199cadd94c2049996d3--}}
     <h4 class="page-title">Arsip Surat</h4>
     <div class="row">
         <div class="col-md-12">
