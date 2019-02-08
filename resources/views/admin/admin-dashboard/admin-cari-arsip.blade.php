@@ -1,5 +1,9 @@
 @extends('layouts.admin-layout',['activeMenu' => 'admin.arsip'])
 @section('content')
+<<<<<<< HEAD
+=======
+
+>>>>>>> ba1a664767f27bd77a5c8199cadd94c2049996d3
 <h4 class="page-title">Arsip Surat</h4>
 <div class="row">
     <div class="col-md-12">
@@ -10,6 +14,15 @@
             </div>
             <div class="card-body">
                 <p class="demo"><b>Surat Keluar</b>
+                <form action="detail/searchdate" method="get">
+                    <label>Search by date</label>
+                    <div class="input-group">
+                        <input type="date" class="form-control col-md-3" name="searchdate"> 
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-primary">Search</button> 
+                        </div>
+                    </div>
+                </form>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
@@ -19,7 +32,6 @@
                             <th>Tujuan</th>
                             <th>Asal Surat</th>
                             <th>Perihal</th>
-                            <th>Status</th>
                             <th>File Surat</th>
                         </tr>
                         </thead>
@@ -35,10 +47,10 @@
 
                                 <td>
                                     <button class="btn btn-primary" data-toggle="modal"
-                                            data-target="#modalView1{{$keluar->no_surat}}">Lihat
+                                            data-target="#modalView1{{$keluar->id}}">Lihat
                                     </button>
                                     <!-- Modal -->
-                                    <div class="modal fade" id="modalView1{{$keluar->no_surat}}" tabindex="-1" role="dialog"
+                                    <div class="modal fade" id="modalView1{{$keluar->id}}" tabindex="-1" role="dialog"
                                          aria-labelledby="modalUpdatePro" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
@@ -50,6 +62,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body text-center">
+<<<<<<< HEAD
                                                     @if(pathinfo($keluar->file_surat,PATHINFO_EXTENSION) == 'pdf')
                                                         <embed src="{{ action('DisposisiController@getFile',['id' => $keluar->no_surat]) }}"
                                                                style="width: 100%;height: 400px" frameborder="0">
@@ -57,12 +70,21 @@
                                                         <img src="{{ url('images/surat_keluar/'.$keluar->file_surat) }}"
                                                              width="85%;">
                                                     @endif
+=======
+                                                    <img src="/images/surat_keluar/{{$keluar->file_surat}}" width="85%;" >
+
+>>>>>>> ba1a664767f27bd77a5c8199cadd94c2049996d3
                                                 </div>
                                                 <div class="modal-footer">
-                                                    @if(pathinfo($keluar->file_surat,PATHINFO_EXTENSION) == 'pdf')
+                                                    
                                                         <a class="btn btn-primary"
+<<<<<<< HEAD
                                                            href="{{url('images/surat_keluar/'. $keluar->file_surat)}}">Download</a>
                                                     @endif
+=======
+                                                           href="/images/surat_keluar/{{$keluar->file_surat}}" >Download</a>
+                                                   
+>>>>>>> ba1a664767f27bd77a5c8199cadd94c2049996d3
                                                     <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">Close
                                                     </button>
@@ -92,7 +114,6 @@
                             <th>Perihal</th>
                             <th>Status</th>
                             <th>File Surat</th>
-                            <th>Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -108,7 +129,7 @@
                                     <button class="btn btn-primary" data-toggle="modal"
                                             data-target="#modalView{{$masuk->id}}">Lihat
                                     </button>
-                                    <!-- Modal -->
+                                  
                                     <div class="modal fade" id="modalView{{$masuk->id}}" tabindex="-1" role="dialog"
                                          aria-labelledby="modalUpdatePro" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -120,6 +141,7 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
+<<<<<<< HEAD
                                                 <div class="modal-body text-center">
                                                     @if(pathinfo($masuk->file_surat,PATHINFO_EXTENSION) == 'pdf')
                                                         <embed src="{{ action('DisposisiController@getFile',['id' => $masuk->id]) }}"
@@ -128,12 +150,21 @@
                                                         <img src="{{ url('images/surat_keluar/'.$masuk->file_surat) }}"
                                                              width="85%;">
                                                     @endif
+=======
+                                                <div class="modal-body text-center">                                    
+                                                    <img src="/images/surat_masuk/{{$masuk->file_surat}}" width="85%;" >
+>>>>>>> ba1a664767f27bd77a5c8199cadd94c2049996d3
                                                 </div>
                                                 <div class="modal-footer">
-                                                    @if(pathinfo($masuk->file_disposisi,PATHINFO_EXTENSION) == 'pdf')
+                                                    
                                                         <a class="btn btn-primary"
+<<<<<<< HEAD
                                                            href="{{url('images/surat_keluar/'. $masuk->file_surat)}}">Download</a>
                                                     @endif
+=======
+                                                           href="/images/surat_masuk/{{$masuk->file_surat}}" >Download</a>
+                                                   
+>>>>>>> ba1a664767f27bd77a5c8199cadd94c2049996d3
                                                     <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">Close
                                                     </button>
@@ -150,6 +181,8 @@
                 </div>
                 </p>
             </div>
+
+            
         </div>
     </div>
 </div>
