@@ -18,8 +18,7 @@
                                 <th>Tanggal</th>
                                 <th>Tujuan</th>
                                 <th>Asal Surat</th>
-                                <th>Lampiran</th>
-                                <th>Status</th>
+                                <th>Perihal</th>
                                 <th>File Surat</th>
                             </tr>
                             </thead>
@@ -30,14 +29,13 @@
                                     <td>{{$keluar->tanggal}}</td>
                                     <td>{{$keluar->tujuan}}</td>
                                     <td>{{$keluar->nama}}</td>
-                                    <td>{{$keluar->lampiran}}</td>
-                                    <td>{{$keluar->status}}</td>
+                                    <td>{{$keluar->perihal}}</td>
                                     <td>
                                         <button class="btn btn-primary" data-toggle="modal"
-                                                data-target="#modalView1{{$keluar->no_surat}}">Lihat
+                                                data-target="#modalView1{{$keluar->id}}">Lihat
                                         </button>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="modalView1{{$keluar->no_surat}}" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="modalView1{{$keluar->id}}" tabindex="-1" role="dialog"
                                              aria-labelledby="modalUpdatePro" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -48,20 +46,13 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <div class="modal-body text-center">
-                                                        @if(pathinfo($keluar->file_surat,PATHINFO_EXTENSION) == 'pdf')
-                                                            <embed src="{{ action('DisposisiController@getFile',['id' => $keluar->no_surat]) }}"
-                                                                   style="width: 100%;height: 400px" frameborder="0">
-                                                        @else
-                                                            <img src="{{ url('storage/disposisi/'.$keluar->file_surat) }}"
-                                                                 width="85%;">
-                                                        @endif
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        @if(pathinfo($keluar->file_surat,PATHINFO_EXTENSION) == 'pdf')
-                                                            <a class="btn btn-primary"
-                                                               href="{{url('storage/disposisi/'. $keluar->file_surat)}}">Download</a>
-                                                        @endif
+                                                    <div class="modal-body text-center">                                    
+                                                    <img src="/images/surat_keluar/{{$keluar->file_surat}}" width="85%;" >
+                                                </div>
+                                                <div class="modal-footer">
+                                                    
+                                                        <a class="btn btn-primary"
+                                                           href="/images/surat_keluar/{{$keluar->file_surat}}" >Download</a>
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Close
                                                         </button>
@@ -119,20 +110,13 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <div class="modal-body text-center">
-                                                        @if(pathinfo($masuk->file_surat,PATHINFO_EXTENSION) == 'pdf')
-                                                            <embed src="{{ action('DisposisiController@getFile',['id' => $masuk->id]) }}"
-                                                                   style="width: 100%;height: 400px" frameborder="0">
-                                                        @else
-                                                            <img src="{{ url('storage/disposisi/'.$masuk->file_surat) }}"
-                                                                 width="85%;">
-                                                        @endif
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        @if(pathinfo($masuk->file_disposisi,PATHINFO_EXTENSION) == 'pdf')
-                                                            <a class="btn btn-primary"
-                                                               href="{{url('storage/disposisi/'. $masuk->file_surat)}}">Download</a>
-                                                        @endif
+                                                    <div class="modal-body text-center">                                    
+                                                    <img src="/images/surat_masuk/{{$masuk->file_surat}}" width="85%;" >
+                                                </div>
+                                                <div class="modal-footer">
+                                                    
+                                                        <a class="btn btn-primary"
+                                                           href="/images/surat_masuk/{{$masuk->file_surat}}" >Download</a>
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Close
                                                         </button>

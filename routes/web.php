@@ -103,7 +103,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('disposisi', 'DisposisiController')->middleware('auth:superadmin');
 Route::get('file/{id}', 'DisposisiController@getFile');
-Route::get('admin/arsip/detail', 'ArsipController@arsip')->name('arsip.detail')->middleware('auth:admin');
+Route::get('admin/arsip/{seksi}/detail', 'ArsipController@arsip')->name('arsip.detail')->middleware('auth:admin');
+Route::get('admin/arsip/{seksi}/detail/searchdate', 'ArsipController@searchKeluar')->name('arsip.detail.search')->middleware('auth:admin');
 
 Route::get('/superadmin/arsip', function () {
     return view('superadmin/superadmin-dashboard/superadmin-arsip');
