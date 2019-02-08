@@ -53,14 +53,14 @@
                                                             <embed src="{{ action('DisposisiController@getFile',['id' => $keluar->no_surat]) }}"
                                                                    style="width: 100%;height: 400px" frameborder="0">
                                                         @else
-                                                            <img src="{{ url('storage/disposisi/'.$keluar->file_surat) }}"
+                                                            <img src="{{ url('images/surat_keluar/'.$keluar->file_surat) }}"
                                                                  width="85%;">
                                                         @endif
                                                     </div>
                                                     <div class="modal-footer">
                                                         @if(pathinfo($keluar->file_surat,PATHINFO_EXTENSION) == 'pdf')
                                                             <a class="btn btn-primary"
-                                                               href="{{url('storage/disposisi/'. $keluar->file_surat)}}">Download</a>
+                                                               href="{{url('images/surat_keluar/'. $keluar->file_surat)}}">Download</a>
                                                         @endif
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Close
@@ -124,14 +124,14 @@
                                                             <embed src="{{ action('DisposisiController@getFile',['id' => $masuk->id]) }}"
                                                                    style="width: 100%;height: 400px" frameborder="0">
                                                         @else
-                                                            <img src="{{ url('storage/disposisi/'.$masuk->file_surat) }}"
+                                                            <img src="{{ url('images/surat_keluar/'.$masuk->file_surat) }}"
                                                                  width="85%;">
                                                         @endif
                                                     </div>
                                                     <div class="modal-footer">
                                                         @if(pathinfo($masuk->file_disposisi,PATHINFO_EXTENSION) == 'pdf')
                                                             <a class="btn btn-primary"
-                                                               href="{{url('storage/disposisi/'. $masuk->file_surat)}}">Download</a>
+                                                               href="{{url('images/surat_keluar/'. $masuk->file_surat)}}">Download</a>
                                                         @endif
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Close
