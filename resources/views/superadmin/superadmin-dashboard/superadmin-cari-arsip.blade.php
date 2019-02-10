@@ -20,6 +20,15 @@
                         </div>
                     </form>
                     <p class="demo"><b>Surat Keluar</b>
+                    <form action="detail/searchdate" method="get">
+                        <label>Search by date</label>
+                        <div class="input-group">
+                            <input type="date" class="form-control col-md-3" name="searchdate">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+                    </form>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -39,13 +48,16 @@
                                     <td>{{$keluar->tanggal}}</td>
                                     <td>{{$keluar->tujuan}}</td>
                                     <td>{{$keluar->nama}}</td>
-                                    <td>{{$keluar->perihal}}</td>
+                                    <td>{{$keluar->lampiran}}</td>
+                                    <td>{{$keluar->status}}</td>
+
                                     <td>
                                         <button class="btn btn-primary" data-toggle="modal"
                                                 data-target="#modalView1{{$keluar->id}}">Lihat
                                         </button>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="modalView1{{$keluar->id}}" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="modalView1{{$keluar->id}}" tabindex="-1"
+                                             role="dialog"
                                              aria-labelledby="modalUpdatePro" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -56,7 +68,10 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
+<<<<<<< HEAD
 <!--
+=======
+>>>>>>> 80b61a9f6664cfe2c2c3b54e2bebb3feda844b62
                                                     <div class="modal-body text-center">
                                                         @if(pathinfo($keluar->file_surat,PATHINFO_EXTENSION) == 'pdf')
                                                             <embed src="{{ action('DisposisiController@getFile',['id' => $keluar->no_surat]) }}"
@@ -65,8 +80,10 @@
                                                             <img src="{{ url('images/surat_keluar/'.$keluar->file_surat) }}"
                                                                  width="85%;">
                                                         @endif
+
                                                     </div>
                                                     <div class="modal-footer">
+<<<<<<< HEAD
                                                         @if(pathinfo($keluar->file_surat,PATHINFO_EXTENSION) == 'pdf')
                                                             <a class="btn btn-primary"
                                                                href="{{url('images/surat_keluar/'. $keluar->file_surat)}}">Download</a>
@@ -79,6 +96,10 @@
                                                     
                                                         <a class="btn btn-primary"
                                                            href="/images/surat_keluar/{{$keluar->file_surat}}" >Download</a>
+=======
+
+                                                        <a class="btn btn-primary" href="{{url('images/surat_keluar/'. $keluar->file_surat)}}">Download</a>
+>>>>>>> 80b61a9f6664cfe2c2c3b54e2bebb3feda844b62
 
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Close
@@ -93,7 +114,6 @@
                             </tbody>
                         </table>
                     </div>
-                    </p>
                 </div>
 
                 <div class="card-body">
@@ -109,7 +129,6 @@
                                 <th>Perihal</th>
                                 <th>Status</th>
                                 <th>File Surat</th>
-                                <th>Aksi</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -126,7 +145,8 @@
                                                 data-target="#modalView{{$masuk->id}}">Lihat
                                         </button>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="modalView{{$masuk->id}}" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="modalView{{$masuk->id}}" tabindex="-1"
+                                             role="dialog"
                                              aria-labelledby="modalUpdatePro" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -137,17 +157,22 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
+<<<<<<< HEAD
 <!--
+=======
+>>>>>>> 80b61a9f6664cfe2c2c3b54e2bebb3feda844b62
                                                     <div class="modal-body text-center">
                                                         @if(pathinfo($masuk->file_surat,PATHINFO_EXTENSION) == 'pdf')
-                                                            <embed src="{{ action('DisposisiController@getFile',['id' => $masuk->id]) }}"
+                                                            <embed src="{{ action('DisposisiController@getFile',['id' => $masuk->no_surat]) }}"
                                                                    style="width: 100%;height: 400px" frameborder="0">
                                                         @else
                                                             <img src="{{ url('images/surat_keluar/'.$masuk->file_surat) }}"
                                                                  width="85%;">
                                                         @endif
+
                                                     </div>
                                                     <div class="modal-footer">
+<<<<<<< HEAD
                                                         @if(pathinfo($masuk->file_disposisi,PATHINFO_EXTENSION) == 'pdf')
                                                             <a class="btn btn-primary"
                                                                href="{{url('images/surat_keluar/'. $masuk->file_surat)}}">Download</a>
@@ -160,6 +185,10 @@
                                                     
                                                         <a class="btn btn-primary"
                                                            href="/images/surat_masuk/{{$masuk->file_surat}}" >Download</a>
+=======
+
+                                                        <a class="btn btn-primary" href="{{url('images/surat_keluar/'. $masuk->file_surat)}}">Download</a>
+>>>>>>> 80b61a9f6664cfe2c2c3b54e2bebb3feda844b62
 
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Close
@@ -177,6 +206,8 @@
                     </div>
                     </p>
                 </div>
+
+
             </div>
         </div>
     </div>
