@@ -27,7 +27,6 @@ class SuratMasukController extends Controller
     	$validatedData = $request->validate([
             'no_surat' => 'required|string',
             'tanggal' => 'required',
-            'tujuan' => 'required',
             'asal_surat' => 'required|string',
             'perihal' => 'string',
             'file_surat' => 'file|max:1024',
@@ -36,7 +35,6 @@ class SuratMasukController extends Controller
         $suratmasuk = new SuratMasuk();
         $suratmasuk->no_surat = $request->no_surat;
         $suratmasuk->tanggal = $request->tanggal;
-        $suratmasuk->tujuan = $request->tujuan;
         $suratmasuk->asal_surat = $request->asal_surat;
         $suratmasuk->perihal = $request->perihal;
         $file = $request->file('file_surat');

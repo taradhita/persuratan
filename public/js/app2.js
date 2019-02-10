@@ -1803,8 +1803,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['approves']
+  props: ['approves'],
+  methods: {
+    markAllAsRead: function markAllAsRead() {
+      axios.post('/user/markall').then(function (response) {
+        window.location.href = "/user";
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -46835,7 +46843,26 @@ var render = function() {
           ])
         }),
         _vm._v(" "),
-        _vm._m(2)
+        _vm.approve.length != 0
+          ? _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "see-all",
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      _vm.markAllAsRead()
+                    }
+                  }
+                },
+                [
+                  _vm._v(" Tandai Semua sebagai Dibaca "),
+                  _c("i", { staticClass: "la la-angle-right" })
+                ]
+              )
+            ])
+          : _vm._e()
       ],
       2
     )
@@ -46857,18 +46884,6 @@ var staticRenderFns = [
     return _c("span", { staticClass: "block" }, [
       _c("b", [_vm._v("Disposisi masuk baru")]),
       _c("br")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { staticClass: "see-all", attrs: { href: "#" } }, [
-        _c("strong", [_vm._v("See all notifications")]),
-        _vm._v(" "),
-        _c("i", { staticClass: "la la-angle-right" })
-      ])
     ])
   }
 ]

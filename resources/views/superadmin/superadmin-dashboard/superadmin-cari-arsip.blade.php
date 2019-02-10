@@ -9,6 +9,16 @@
                     <p class="card-category">Seksi <b style="color: black">{{$seksi}}</b></p>
                 </div>
                 <div class="card-body">
+                    <form action="detail/search" method="get">
+                        <label>Search by date</label>
+                        <div class="input-group">
+                            <input type="hidden" name="seksi" value="{{$seksi}}">
+                            <input type="date" class="form-control col-md-3" name="searchdate">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+                    </form>
                     <p class="demo"><b>Surat Keluar</b>
                     <div class="table-responsive">
                         <table class="table table-bordered">
@@ -46,7 +56,7 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-<<<<<<< HEAD
+<!--
                                                     <div class="modal-body text-center">
                                                         @if(pathinfo($keluar->file_surat,PATHINFO_EXTENSION) == 'pdf')
                                                             <embed src="{{ action('DisposisiController@getFile',['id' => $keluar->no_surat]) }}"
@@ -61,7 +71,7 @@
                                                             <a class="btn btn-primary"
                                                                href="{{url('images/surat_keluar/'. $keluar->file_surat)}}">Download</a>
                                                         @endif
-=======
+=======-->
                                                     <div class="modal-body text-center">
                                                     <img src="/images/surat_keluar/{{$keluar->file_surat}}" width="85%;" >
                                                 </div>
@@ -69,7 +79,7 @@
                                                     
                                                         <a class="btn btn-primary"
                                                            href="/images/surat_keluar/{{$keluar->file_surat}}" >Download</a>
->>>>>>> ba1a664767f27bd77a5c8199cadd94c2049996d3
+
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Close
                                                         </button>
@@ -127,7 +137,7 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-<<<<<<< HEAD
+<!--
                                                     <div class="modal-body text-center">
                                                         @if(pathinfo($masuk->file_surat,PATHINFO_EXTENSION) == 'pdf')
                                                             <embed src="{{ action('DisposisiController@getFile',['id' => $masuk->id]) }}"
@@ -142,7 +152,7 @@
                                                             <a class="btn btn-primary"
                                                                href="{{url('images/surat_keluar/'. $masuk->file_surat)}}">Download</a>
                                                         @endif
-=======
+=======-->
                                                     <div class="modal-body text-center">
                                                     <img src="/images/surat_masuk/{{$masuk->file_surat}}" width="85%;" >
                                                 </div>
@@ -150,7 +160,7 @@
                                                     
                                                         <a class="btn btn-primary"
                                                            href="/images/surat_masuk/{{$masuk->file_surat}}" >Download</a>
->>>>>>> ba1a664767f27bd77a5c8199cadd94c2049996d3
+
                                                         <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Close
                                                         </button>

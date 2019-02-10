@@ -29,15 +29,6 @@
                 								@endif
 											</div>
 											<div class="form-group">
-												<label for="tujuan">Tujuan Surat</label>
-												<select class="form-control input-square" name="tujuan">
-														<option selected>Pilih...</option>
-													@foreach ($user as $u)
-													<option value="{{$u->id}}">{{$u->nama_seksi}}</option>
-													@endforeach
-												</select>
-											</div>
-											<div class="form-group">
 												<label for="asal_surat">Asal Surat</label>
 												<input type="text" class="form-control{{ $errors->has('asal_surat') ? ' is-invalid' : '' }}" name="asal_surat" id="asal_surat" placeholder="Asal Surat">
 												@if ($errors->has('asal_surat'))

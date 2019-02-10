@@ -25,12 +25,13 @@
 								<th>#</th>
 								<th>No. Surat</th>
 								<th>Tanggal</th>
-								<th>Tujuan</th>
 								<th>Asal Surat</th>
 								<th>Perihal</th>
 								<th>Status</th>
 								<th>File Surat</th>
-								<th>Aksi</th>			
+								<th>Tujuan</th>
+								<th>Aksi</th>
+
 							</tr>
 						</thead>
 						<tbody>
@@ -39,7 +40,6 @@
 								<th scope="row">{{$loop->iteration}}</th>
 								<td>{{$s->no_surat}}</td>
 								<td>{{$s->tanggal}}</td>
-								<td>{{$s->user->nama_seksi}}</td>
 								<td>{{$s->asal_surat}}</td>
 								<td>{{$s->perihal}}</td>
 								<td>{{$s->status}}</td>
@@ -64,6 +64,7 @@
 										</div>
 									</div>
 								</td>
+								<td><a href="{{route('superadmin.addtujuan',['id'=> $s->id])}}" class="btn btn-primary">Tambah</a></input></td>
 								<td>
 									<form style="display:inline-block;" method="post" action="{{route('superadmin.surat-masuk.update', $s->id)}}">
 										@csrf

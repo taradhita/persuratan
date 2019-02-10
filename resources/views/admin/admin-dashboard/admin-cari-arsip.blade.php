@@ -1,9 +1,6 @@
 @extends('layouts.admin-layout',['activeMenu' => 'admin.arsip'])
 @section('content')
-    {{--<<<<<<< HEAD--}}
-    {{--=======--}}
 
-    {{-->>>>>>> ba1a664767f27bd77a5c8199cadd94c2049996d3--}}
     <h4 class="page-title">Arsip Surat</h4>
     <div class="row">
         <div class="col-md-12">
@@ -13,16 +10,18 @@
                     <p class="card-category">Seksi <b style="color: black">{{$seksi}}</b></p>
                 </div>
                 <div class="card-body">
-                    <p class="demo"><b>Surat Keluar</b>
-                    <form action="detail/searchdate" method="get">
+                    <form action="detail/search" method="get">
                         <label>Search by date</label>
                         <div class="input-group">
+                            <input type="hidden" name="seksi" value="{{$seksi}}">
                             <input type="date" class="form-control col-md-3" name="searchdate">
                             <div class="input-group-btn">
                                 <button type="submit" class="btn btn-primary">Search</button>
                             </div>
                         </div>
                     </form>
+                    <p class="demo"><b>Surat Keluar</b>
+                    
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -42,9 +41,7 @@
                                     <td>{{$keluar->tanggal}}</td>
                                     <td>{{$keluar->tujuan}}</td>
                                     <td>{{$keluar->nama}}</td>
-                                    <td>{{$keluar->lampiran}}</td>
-                                    <td>{{$keluar->status}}</td>
-
+                                    <td>{{$keluar->perihal}}</td>
                                     <td>
                                         <button class="btn btn-primary" data-toggle="modal"
                                                 data-target="#modalView1{{$keluar->id}}">Lihat
@@ -64,8 +61,8 @@
                                                     </div>
                                                     <div class="modal-body text-center">
                                                         @if(pathinfo($keluar->file_surat,PATHINFO_EXTENSION) == 'pdf')
-                                                            <embed src="{{ action('DisposisiController@getFile',['id' => $keluar->no_surat]) }}"
-                                                                   style="width: 100%;height: 400px" frameborder="0">
+                                                            <img src="{{ url('images/surat_keluar/'.$keluar->file_surat) }}"
+                                                                 width="85%;">
                                                         @else
                                                             <img src="{{ url('images/surat_keluar/'.$keluar->file_surat) }}"
                                                                  width="85%;">
@@ -134,8 +131,8 @@
                                                     </div>
                                                     <div class="modal-body text-center">
                                                         @if(pathinfo($masuk->file_surat,PATHINFO_EXTENSION) == 'pdf')
-                                                            <embed src="{{ action('DisposisiController@getFile',['id' => $masuk->no_surat]) }}"
-                                                                   style="width: 100%;height: 400px" frameborder="0">
+                                                            <img src="{{ url('images/surat_keluar/'.$masuk->file_surat) }}"
+                                                                 width="85%;">
                                                         @else
                                                             <img src="{{ url('images/surat_keluar/'.$masuk->file_surat) }}"
                                                                  width="85%;">

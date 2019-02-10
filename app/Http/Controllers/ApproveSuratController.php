@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Input;
 use App\Notifications\ApproveSuratNotif;
 use App\Notifications\TolakSuratNotif;
 use App\Admin;
+use App\DetailSurat;
 
 class ApproveSuratController extends Controller
 {
@@ -25,9 +26,9 @@ class ApproveSuratController extends Controller
     	if (Input::get('status')=='Terima'){
     		$surat_masuk->status='Diterima';
             $surat_masuk->save();
-            $masuk = User::where('id','=',$surat_masuk->tujuan)->get();
-            \Notification::send($masuk, new ApproveSuratNotif($surat_masuk));
-            return redirect('/superadmin/surat-masuk');
+            /*$masuk = User::where('id','=',$surat_masuk->tujuan)->get();
+            \Notification::send($masuk, new ApproveSuratNotif($surat_masuk)); */
+            return redirect('/superadmin/surat-masuk'); 
     	}
     	else if (Input::get('status')=='Tolak'){
     		$surat_masuk->status='Ditolak';
@@ -66,6 +67,5 @@ class ApproveSuratController extends Controller
         $disposisi = Disposisi::where('tujuan_disposisi', '=', $u->id)->orderBy('id', 'desc')->paginate(15);
         return view('user-dashboard.disposisi-masuk',compact('disposisi'));
     }
-
 
 }

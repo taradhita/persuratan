@@ -1810,8 +1810,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['suratkeluars'],
   methods: {
@@ -46891,9 +46889,7 @@ var render = function() {
                 ]
               )
             ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm._m(2)
+          : _vm._e()
       ],
       2
     )
@@ -46914,18 +46910,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "notif-icon notif-danger" }, [
       _c("i", { staticClass: "la la-close" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { staticClass: "see-all", attrs: { href: "#" } }, [
-        _c("strong", [_vm._v("See all notifications")]),
-        _vm._v(" "),
-        _c("i", { staticClass: "la la-angle-right" })
-      ])
     ])
   }
 ]

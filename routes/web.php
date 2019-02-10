@@ -79,6 +79,9 @@ Route::get('/superadmin/surat-masuk/search','ApproveSuratController@search')->mi
 Route::post('/superadmin/notif', 'SuratMasukController@notif')->middleware('auth:superadmin');
 Route::post('/superadmin/markall', 'SuratMasukController@markAllAsRead')->middleware('auth:superadmin');
 
+Route::get('/superadmin/surat-masuk/tujuan','TambahTujuanController@create')->name('superadmin.addtujuan')->middleware('auth:superadmin');
+Route::post('/superadmin/surat-masuk','TambahTujuanController@store')->name('superadmin.tujuan')->middleware('auth:superadmin');
+
 //Route::get('/superadmin/disposisi');
 
 Route::get('superadmin/{superadmin}/edit', ['as' => 'superadmin.edit', 'uses' => 'UpdateSuperadminController@edit'])->middleware('auth:superadmin');
@@ -104,8 +107,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('disposisi', 'DisposisiController')->middleware('auth:superadmin');
 Route::get('file/{id}', 'DisposisiController@getFile');
 Route::get('admin/arsip/{seksi}/detail', 'ArsipController@arsip')->name('arsip.detail')->middleware('auth:admin');
+Route::get('admin/arsip/{seksi}/detail/search', 'ArsipController@searchDate')->name('arsip.search')->middleware('auth:admin');
 
 Route::get('/superadmin/arsip', function () {
     return view('superadmin/superadmin-dashboard/superadmin-arsip');
 })->middleware('auth:superadmin');
 Route::get('superadmin/arsip/detail', 'ArsipController@arsipSuperAdmin')->name('arsipSuperAdmin.detail')->middleware('auth:superadmin');
+Route::get('superadmin/arsip/{seksi}/detail/search', 'ArsipController@searchDateSuperadmin')->name('arsip.search')->middleware('auth:superadmin');
