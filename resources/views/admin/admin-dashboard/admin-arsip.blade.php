@@ -97,6 +97,23 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="card card-stats card-primary">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="icon-big text-center"><i class="la la-archive"></i></div>
+                                        </div>
+                                        <div class="col-8 d-flex align-items-center">
+                                            <div class="numbers">
+                                                <p class="card-category"></p>
+                                                <a href="/" class="card-title">Tata Usaha</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

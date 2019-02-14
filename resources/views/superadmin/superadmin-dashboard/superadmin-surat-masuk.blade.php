@@ -24,7 +24,7 @@
 							<tr>
 								<th>#</th>
 								<th>No. Surat</th>
-								<th>Tanggal</th>
+								<th>Tanggal Terima</th>
 								<th>Asal Surat</th>
 								<th>Perihal</th>
 								<th>Status</th>

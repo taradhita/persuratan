@@ -122,7 +122,12 @@
 								<p>Arsip Surat</p>
 							</a>
 						</li>
-
+					<li class="nav-item {{ $activeMenu == 'admin.laporan' ? 'active' : '' }}">
+							<a href="/admin/laporan">
+								<i class="la la-archive"></i>
+								<p>Laporan</p>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>

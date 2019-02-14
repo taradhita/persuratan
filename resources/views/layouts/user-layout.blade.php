@@ -163,6 +163,12 @@
 								<p>Surat Keluar</p>
 							</a>
 						</li>
+						<li class="nav-item {{ $activeMenu == 'user.laporan' ? 'active' : '' }}">
+							<a href="/user/laporan">
+								<i class="la la-archive"></i>
+								<p>Laporan</p>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>

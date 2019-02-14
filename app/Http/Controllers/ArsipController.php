@@ -9,18 +9,39 @@ class ArsipController extends Controller
 {
     public function arsip(Request $request)
     {
-        $seksi = '"' . $request->seksi . '"';
-        $suratKeluar = DB::select("SELECT surat_keluar.id, no_surat,tanggal,tujuan,users.nama_seksi as nama, perihal, file_surat FROM surat_keluar INNER JOIN users ON users.id = surat_keluar.asal_surat WHERE users.nama_seksi =" . $seksi);
-        $suratMasuk = DB::select("SELECT status,surat_masuk.id, no_surat,tanggal,tujuan,users.nama_seksi as nama,perihal,status,file_surat FROM surat_masuk INNER JOIN users ON users.id = surat_masuk.tujuan WHERE users.nama_seksi =" . $seksi);
+        $seksi = $request->seksi;
+        $suratKeluar = DB::table('surat_keluar')
+                        ->select( 'surat_keluar.id', 'no_surat','tanggal','tujuan','users.nama_seksi as nama', 'perihal', 'file_surat')
+                        ->join('users','users.id', '=', 'surat_keluar.asal_surat')
+                        ->where('users.nama_seksi', '=', $seksi )
+                        ->get();
+        $suratMasuk = DB::table('detail_surat')
+                        ->join('surat_masuk', 'surat_masuk.id', '=', 'detail_surat.id_surat')
+                        ->join('users', 'users.id', '=','detail_surat.id_tujuan')
+                        ->select('surat_masuk.id as id', 'surat_masuk.no_surat as no_surat', 'surat_masuk.tanggal as tanggal', 'surat_masuk.asal_surat as asal_surat', 'users.nama_seksi as nama', 'surat_masuk.perihal as perihal', 'surat_masuk.file_surat as file_surat', 'surat_masuk.status as status')
+                        ->where('users.nama_seksi','=',$seksi)
+                        ->get();
 
         return view('admin.admin-dashboard.admin-cari-arsip', compact('seksi', 'suratKeluar','suratMasuk'));
     }
 
     public function searchDate(Request $request){
         $seksi = $request->seksi;
-        $date  = '"' . $request->searchdate . '"';
-        $suratKeluar = DB::select("SELECT surat_keluar.id, no_surat,tanggal,tujuan,users.nama_seksi as nama, perihal, file_surat FROM surat_keluar INNER JOIN users ON users.id = surat_keluar.asal_surat WHERE users.nama_seksi =" . $seksi. " AND tanggal =" . $date);
-        $suratMasuk = DB::select("SELECT status,surat_masuk.id, no_surat,tanggal,tujuan,users.nama_seksi as nama,perihal,status,file_surat FROM surat_masuk INNER JOIN users ON users.id = surat_masuk.tujuan WHERE users.nama_seksi =" . $seksi. " AND tanggal =" . $date);
+        $date  = $request->searchdate;
+        $suratKeluar = DB::table('surat_keluar')
+                        ->select( 'surat_keluar.id', 'no_surat','tanggal','tujuan','users.nama_seksi as nama', 'perihal', 'file_surat')
+                        ->join('users','users.id', '=', 'surat_keluar.asal_surat')
+                        ->where('users.nama_seksi', '=', $seksi )
+                        ->where('tanggal','=',$date)
+                        ->get();
+
+        $suratMasuk = DB::table('detail_surat')
+                        ->join('surat_masuk', 'surat_masuk.id', '=', 'detail_surat.id_surat')
+                        ->join('users', 'users.id', '=','detail_surat.id_tujuan')
+                        ->select('surat_masuk.id as id', 'surat_masuk.no_surat as no_surat', 'surat_masuk.tanggal as tanggal', 'surat_masuk.asal_surat as asal_surat', 'users.nama_seksi as nama', 'surat_masuk.perihal as perihal', 'surat_masuk.file_surat as file_surat', 'surat_masuk.status as status')
+                        ->where('users.nama_seksi','=',$seksi)
+                        ->where('tanggal','=',$date)
+                        ->get();
 
         return view('admin.admin-dashboard.admin-cari-arsip', compact('seksi', 'suratKeluar','suratMasuk'));  
     }
@@ -28,22 +49,39 @@ class ArsipController extends Controller
 
     public function arsipSuperAdmin(Request $request)
     {
-        $seksi = '"' . $request->seksi . '"';
-<<<<<<< HEAD
-        $suratKeluar = DB::select("SELECT surat_keluar.id,no_surat,tanggal,tujuan,users.nama_seksi as nama,file_surat FROM surat_keluar INNER JOIN users ON users.id = surat_keluar.asal_surat WHERE users.nama_seksi =" . $seksi);
-=======
-        $suratKeluar = DB::select("SELECT status,surat_keluar.id,no_surat,tanggal,tujuan,users.nama_seksi as nama,lampiran,file_surat FROM surat_keluar INNER JOIN users ON users.id = surat_keluar.asal_surat WHERE users.nama_seksi =" . $seksi);
->>>>>>> 80b61a9f6664cfe2c2c3b54e2bebb3feda844b62
-        $suratMasuk = DB::select("SELECT status,surat_masuk.id,no_surat,tanggal,tujuan,users.nama_seksi as nama,perihal,status,file_surat FROM surat_masuk INNER JOIN users ON users.id = surat_masuk.tujuan WHERE users.nama_seksi =" . $seksi);
+        $seksi = $request->seksi;
+        $suratKeluar = DB::table('surat_keluar')
+                        ->select( 'surat_keluar.id', 'no_surat','tanggal','tujuan','users.nama_seksi as nama', 'perihal', 'file_surat')
+                        ->join('users','users.id', '=', 'surat_keluar.asal_surat')
+                        ->where('users.nama_seksi', '=', $seksi )
+                        ->get();
+        $suratMasuk = DB::table('detail_surat')
+                        ->join('surat_masuk', 'surat_masuk.id', '=', 'detail_surat.id_surat')
+                        ->join('users', 'users.id', '=','detail_surat.id_tujuan')
+                        ->select('surat_masuk.id as id', 'surat_masuk.no_surat as no_surat', 'surat_masuk.tanggal as tanggal', 'surat_masuk.asal_surat as asal_surat', 'users.nama_seksi as nama', 'surat_masuk.perihal as perihal', 'surat_masuk.file_surat as file_surat', 'surat_masuk.status as status')
+                        ->where('users.nama_seksi','=',$seksi)
+                        ->get();
 
         return view('superadmin.superadmin-dashboard.superadmin-cari-arsip', compact('seksi', 'suratKeluar', 'suratMasuk'));
     }
 
     public function searchDateSuperAdmin(Request $request){
         $seksi = $request->seksi;
-        $date  = '"' . $request->searchdate . '"';
-        $suratKeluar = DB::select("SELECT surat_keluar.id, no_surat,tanggal,tujuan,users.nama_seksi as nama, perihal, file_surat FROM surat_keluar INNER JOIN users ON users.id = surat_keluar.asal_surat WHERE users.nama_seksi =" . $seksi. " AND tanggal =" . $date);
-        $suratMasuk = DB::select("SELECT status,surat_masuk.id, no_surat,tanggal,tujuan,users.nama_seksi as nama,perihal,status,file_surat FROM surat_masuk INNER JOIN users ON users.id = surat_masuk.tujuan WHERE users.nama_seksi =" . $seksi. " AND tanggal =" . $date);
+        $date  = $request->searchdate;
+        $suratKeluar = DB::table('surat_keluar')
+                        ->select( 'surat_keluar.id', 'no_surat','tanggal','tujuan','users.nama_seksi as nama', 'perihal', 'file_surat')
+                        ->join('users','users.id', '=', 'surat_keluar.asal_surat')
+                        ->where('users.nama_seksi', '=', $seksi )
+                        ->where('tanggal','=',$date)
+                        ->get();
+
+        $suratMasuk = DB::table('detail_surat')
+                        ->join('surat_masuk', 'surat_masuk.id', '=', 'detail_surat.id_surat')
+                        ->join('users', 'users.id', '=','detail_surat.id_tujuan')
+                        ->select('surat_masuk.id as id', 'surat_masuk.no_surat as no_surat', 'surat_masuk.tanggal as tanggal', 'surat_masuk.asal_surat as asal_surat', 'users.nama_seksi as nama', 'surat_masuk.perihal as perihal', 'surat_masuk.file_surat as file_surat', 'surat_masuk.status as status')
+                        ->where('users.nama_seksi','=',$seksi)
+                        ->where('tanggal','=',$date)
+                        ->get();
 
         return view('superadmin.superadmin-dashboard.superadmin-cari-arsip', compact('seksi', 'suratKeluar', 'suratMasuk'));
     }

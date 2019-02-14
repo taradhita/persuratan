@@ -58,7 +58,14 @@ class ApproveSuratController extends Controller
 
     public function suratDiterima(){
         $u = Auth::user();
-        $suratmasuk = SuratMasuk::where('status','diterima')->where('tujuan','=', $u->id)->orderBy('id', 'desc')->paginate(15);
+        $suratmasuk = DB::table('surat_masuk')
+                        ->join('detail_surat', 'surat_masuk.id', 'detail_surat.id_surat')
+                        ->join('users', 'users.id', 'detail_surat.id_tujuan')
+                        ->select('*')
+                        ->where('detail_surat.id_surat','=',$u->id)
+                        ->paginate(15);
+
+        #SuratMasuk::where('status','diterima')->where('tujuan','=', $u->id)->orderBy('id', 'desc')->paginate(15);
         return view('user-dashboard.user-surat-masuk',compact('suratmasuk'));
     }
 

@@ -50,7 +50,17 @@ Route::post('/admin/markall', 'SuratKeluarController@markAllAsRead')->middleware
 
 Route::get('/admin/surat-masuk/search','SuratMasukController@search')->middleware('auth:admin');
 
-//yang ini khusus test user dashboard view, nanti route diganti!!!!!
+Route::get('/admin/laporan', function () {
+    return view('admin/admin-dashboard/admin-laporan');
+})->middleware('auth:admin');
+
+Route::get('/admin/laporan/surat-masuk', 'LaporanController@LaporanMasuk')->name('admin.laporan-masuk')->middleware('auth:admin');
+
+Route::get('/admin/laporan/surat-keluar', 'LaporanController@LaporanKeluar')->name('admin.laporan-keluar')->middleware('auth:admin');
+
+Route::get('/admin/laporan/disposisi', 'LaporanController@LaporanDisposisi')->name('admin.laporan-disposisi')->middleware('auth:admin');
+
+//yang ini khusus test user dashboard view
 Route::get('/user', function () {
     return view('user-dashboard/user-home');
 })->name('user.home')->middleware('auth');
@@ -68,6 +78,17 @@ Route::post('/user/markall', 'ApproveSuratController@markAllAsRead')->middleware
 Route::get('/user/surat-masuk/search','UserSearchController@searchSuratMasuk')->middleware('auth');
 Route::get('/user/disposisi-masuk/search','UserSearchController@searchDisposisi')->middleware('auth');
 Route::get('/user/surat-keluar/search','UserSearchController@searchSuratKeluar')->middleware('auth');
+Route::get('/user/laporan', function () {
+    return view('user-dashboard/user-laporan');
+})->middleware('auth');
+
+Route::get('/user/laporan/surat-masuk', 'UserLaporanController@LaporanMasuk')->name('user.laporan-masuk')->middleware('auth');
+
+Route::get('/user/laporan/surat-keluar', 'UserLaporanController@LaporanKeluar')->name('user.laporan-keluar')->middleware('auth');
+
+Route::get('/user/laporan/disposisi', 'UserLaporanController@LaporanDisposisi')->name('user.laporan-disposisi')->middleware('auth');
+
+//KHUSUS SUPERADMIN VIEW
 
 Route::get('/superadmin', function () {
     return view('superadmin/superadmin-dashboard/superadmin-home');
@@ -112,5 +133,6 @@ Route::get('admin/arsip/{seksi}/detail/search', 'ArsipController@searchDate')->n
 Route::get('/superadmin/arsip', function () {
     return view('superadmin/superadmin-dashboard/superadmin-arsip');
 })->middleware('auth:superadmin');
-Route::get('superadmin/arsip/detail', 'ArsipController@arsipSuperAdmin')->name('arsipSuperAdmin.detail')->middleware('auth:superadmin');
-Route::get('superadmin/arsip/{seksi}/detail/search', 'ArsipController@searchDateSuperadmin')->name('arsip.search')->middleware('auth:superadmin');
+Route::get('superadmin/arsip/{seksi}/detail', 'ArsipController@arsipSuperAdmin')->name('arsipSuperAdmin.detail')->middleware('auth:superadmin');
+Route::get('superadmin/arsip/{seksi}/detail/search', 'ArsipController@searchDateSuperadmin')->name('arsipSuperAdmin.search')->middleware('auth:superadmin');
+
