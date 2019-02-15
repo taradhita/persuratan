@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\SuratMasuk;
 use App\DetailSurat;
+use App\Notifications\ApproveSuratNotif;
 
 class TambahTujuanController extends Controller
 {
@@ -20,6 +21,8 @@ class TambahTujuanController extends Controller
     	$detail->id_surat = $request->id_surat;
     	$detail->id_tujuan = $request->id_tujuan;
     	$detail->save();
+        $masuk = User::where('id','=',$detail->id_tujuan)->get();
+        \Notification::send($masuk, new ApproveSuratNotif($detail));
     	return redirect('/superadmin/surat-masuk');
     }
 }

@@ -37,9 +37,9 @@
 					
 					
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-						<approve v-bind:approves="approves" ></approve>
+						<!--<approve v-bind:approves="approves" ></approve>-->
 
-						<!--<li class="nav-item dropdown hidden-caret">
+						<li class="nav-item dropdown hidden-caret">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="la la-bell"></i>
 								<span class="notification">{{auth()->user()->unreadNotifications->count()}}</span>
@@ -59,7 +59,7 @@
 											<div class="notif-content">
 												@if($notif->type == "App\Notifications\ApproveSuratNotif")
 												<span class="block">
-													{{$notif->data['approve']['asal_surat']}} mengirim pesan baru
+													Pesan masuk baru
 												</span>
 												<span class="time">5 minutes ago</span> 
 												
@@ -77,10 +77,10 @@
 								@endforeach
 								@endif
 								<li>
-									<a class="see-all" href="javascript:void(0);"> <strong>Lihat Semua</strong> <i class="la la-angle-right"></i> </a>
+									<a class="see-all" href="{{auth()->user()->unreadNotifications->markAsRead()}}"> <strong>Tandai Semua sebagai Dibaca</strong> <i class="la la-angle-right"></i> </a>
 								</li>
 							</ul>
-						</li>-->
+						</li>
 						<li class="nav-item dropdown">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="/images/icons/user_icon.png" alt="user-img" width="36" class="img-circle"><span >{{Auth::user()->username}}</span></span> </a>
 							<ul class="dropdown-menu dropdown-user">

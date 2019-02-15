@@ -15,7 +15,7 @@ use App\Exports\DisposisiExport;
 class LaporanController extends Controller
 {
 
-    public function LaporanMasuk(Request $request){
+    public function LaporanMasuk(Request $request){\
     	$selectyear = SuratMasuk::groupBy('yr')->selectRaw('YEAR(tanggal) as yr')->get();
     	$month = $request->month;
     	$year = $request->year;

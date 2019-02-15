@@ -18,7 +18,7 @@ class ApproveSuratController extends Controller
 {
     public function index(){
         //$u = Auth::user();
-    	$suratmasuk = SuratMasuk::where('status','pending')->orderBy('id', 'desc')->paginate(15);
+    	$suratmasuk = SuratMasuk::select('*')->orderBy('id', 'desc')->paginate(15);
     	return view('superadmin.superadmin-dashboard.superadmin-surat-masuk',compact('suratmasuk'));
     }
 
@@ -52,7 +52,7 @@ class ApproveSuratController extends Controller
 
     public function search(Request $request){
         $search = $request->get('searchdate');
-        $suratmasuk = SuratMasuk::where('status','pending')->where('tanggal','like','%'.$search.'%')->paginate(15);
+        $suratmasuk = SuratMasuk::select('*')->where('tanggal','like','%'.$search.'%')->paginate(15);
         return view('superadmin.superadmin-dashboard.superadmin-surat-masuk',compact('suratmasuk'));
     }
 

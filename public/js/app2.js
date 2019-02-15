@@ -46808,12 +46808,7 @@ var render = function() {
                 approve.data["approve"] !== _vm.NULL
                   ? _c("div", { staticClass: "notif-content" }, [
                       _c("span", { staticClass: "block" }, [
-                        _c("b", [
-                          _vm._v(
-                            _vm._s(approve.data["approve"]["asal_surat"]) +
-                              " mengirim surat masuk"
-                          )
-                        ]),
+                        _c("b", [_vm._v("Surat Masuk Baru")]),
                         _c("br"),
                         _vm._v(
                           "\n\t\t\t\t\t\t\t\t\t\t\t\t\t" +

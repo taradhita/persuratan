@@ -64,14 +64,27 @@
 										</div>
 									</div>
 								</td>
-								<td><a href="{{route('superadmin.addtujuan',['id'=> $s->id])}}" class="btn btn-primary">Tambah</a></input></td>
+
 								<td>
+									@if ($s->status == 'Ditolak')
+									<a href="{{route('superadmin.tujuan',['id_surat'=> $s->id, 'id_tujuan' =>'6'])}}" class="btn btn-primary">Tambah</a></input>
+									@else
+									<a href="{{route('superadmin.addtujuan',['id'=> $s->id])}}" class="btn btn-primary">Tambah</a></input>
+									@endif
+
+								</td>
+									
+
+								<td>
+									@if($s->status == 'Pending')
 									<form style="display:inline-block;" method="post" action="{{route('superadmin.surat-masuk.update', $s->id)}}">
 										@csrf
 										{{ method_field('PUT') }}
 										<input type="submit" class="btn btn-success" name="status" value="Terima"></input>
 										<input type="submit" class="btn btn-danger" name="status" value="Tolak"></input>
 									</form>
+									@else
+									@endif
 
 								</td>
 							</tr>

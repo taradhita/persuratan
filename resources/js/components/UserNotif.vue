@@ -14,7 +14,7 @@
 											<div class="notif-icon notif-primary"> <i class="la la-envelope"></i> </div>
 											<div class="notif-content" v-if="approve.data['approve']!==NULL">
 												<span class="block">
-													<b>{{approve.data['approve']['asal_surat']}} mengirim surat masuk</b><br />
+													<b>Surat Masuk Baru</b><br />
 													{{approve.data['approve']['perihal']}}
 												</span> 
 												<span class="time">
