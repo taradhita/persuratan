@@ -14,6 +14,7 @@
                                 <label>Bulan</label>
                                 <div class="input-group">
                                 <select class="form-control input-square " name="month">
+                                <option selected disabled>Pilih</option>
                                 <option value="1">Januari</option>
                                 <option value="2">Februari</option>
                                 <option value="3">Maret</option>
@@ -34,6 +35,7 @@
                                 <label>Tahun</label>
                                 <div class="input-group">
                                     <select class="form-control input-square " name="year">
+                                        <option selected disabled>Pilih</option>
                                         @foreach ($selectyear as $yrs)
                                         <option value="{{$yrs->yr}}">{{$yrs->yr}}</option>
                                         @endforeach
@@ -44,6 +46,8 @@
                                 <br />
                                 <div class="input-group-btn">
                                 <button type="submit" class="btn btn-primary">Search</button>
+                                <button type="submit" class="btn btn-primary" formaction="{{route('admin.laporan-keluar.export')}}">Export</button>
+                                </div>
                                 </div>
                             </div>
                         </div>    

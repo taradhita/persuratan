@@ -1,6 +1,6 @@
 @extends('layouts.admin-layout',['activeMenu' => 'admin.laporan'])
 @section('content')
-<h4 class="page-title">Laporan Surat Masuk</h4>
+<h4 class="page-title">Laporan Disposisi</h4>
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -14,6 +14,7 @@
                                 <label>Bulan</label>
                                 <div class="input-group">
                                 <select class="form-control input-square " name="month">
+                                <option selected disabled>Pilih</option>
                                 <option value="1">Januari</option>
                                 <option value="2">Februari</option>
                                 <option value="3">Maret</option>
@@ -34,6 +35,7 @@
                                 <label>Tahun</label>
                                 <div class="input-group">
                                     <select class="form-control input-square " name="year">
+                                        <option selected disabled>Pilih</option>
                                         @foreach ($selectyear as $yrs)
                                         <option value="{{$yrs->yr}}">{{$yrs->yr}}</option>
                                         @endforeach
@@ -44,6 +46,7 @@
                                 <br />
                                 <div class="input-group-btn">
                                 <button type="submit" class="btn btn-primary">Search</button>
+                                <button type="submit" class="btn btn-primary" formaction="{{route('admin.laporan-disposisi.export')}}">Export</button>
                                 </div>
                             </div>
                         </div>    

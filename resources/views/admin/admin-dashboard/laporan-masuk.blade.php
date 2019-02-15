@@ -15,6 +15,7 @@
                                 <label>Bulan</label>
                                 <div class="input-group">
                                 <select class="form-control input-square " name="month">
+                                <option selected disabled>Pilih</option>
                                 <option value="1">Januari</option>
                                 <option value="2">Februari</option>
                                 <option value="3">Maret</option>
@@ -35,6 +36,7 @@
                                 <label>Tahun</label>
                                 <div class="input-group">
                                     <select class="form-control input-square " name="year">
+                                        <option selected disabled>Pilih</option>
                                         @foreach ($selectyear as $yrs)
                                         <option value="{{$yrs->yr}}">{{$yrs->yr}}</option>
                                         @endforeach
@@ -45,6 +47,8 @@
                                 <br />
                                 <div class="input-group-btn">
                                 <button type="submit" class="btn btn-primary">Search</button>
+                                <button type="submit" class="btn btn-primary" formaction="{{route('admin.laporan-masuk.export')}}">Export</button>
+                                </div>
                                 </div>
                             </div>
                         </div>    
@@ -59,7 +63,6 @@
                                 <th>No. Surat</th>
                                 <th>Tanggal Terima</th>
                                 <th>Asal Surat</th>
-                                <th>Tujuan Surat</th>
                                 <th>Perihal</th>
                                 <th>Status</th>
                                 <th>File Surat</th>       
@@ -72,7 +75,6 @@
                                 <td>{{$s->no_surat}}</td>
                                 <td>{{$s->tanggal}}</td>
                                 <td>{{$s->asal_surat}}</td>
-                                <td>{{$s->tujuan}}</td>
                                 <td>{{$s->perihal}}</td>
                                 <td>{{$s->status}}</td>
                                 <td><button class="btn btn-primary" data-toggle="modal" data-target="#modalView{{$s->id}}">Lihat</button> 

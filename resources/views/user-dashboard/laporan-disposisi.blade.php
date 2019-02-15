@@ -1,6 +1,6 @@
 @extends('layouts.user-layout',['activeMenu' => 'user.laporan'])
 @section('content')
-<h4 class="page-title">Laporan Surat Masuk</h4>
+<h4 class="page-title">Laporan Disposisi</h4>
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -44,6 +44,7 @@
                                 <br />
                                 <div class="input-group-btn">
                                 <button type="submit" class="btn btn-primary">Search</button>
+                                <button type="submit" class="btn btn-primary" formaction="{{route('user.laporan-disposisi.export')}}">Export</button>
                                 </div>
                             </div>
                         </div>    

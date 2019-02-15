@@ -56,9 +56,14 @@ Route::get('/admin/laporan', function () {
 
 Route::get('/admin/laporan/surat-masuk', 'LaporanController@LaporanMasuk')->name('admin.laporan-masuk')->middleware('auth:admin');
 
+Route::get('/admin/laporan/surat-masuk/export', 'LaporanController@MasukExport')->name('admin.laporan-masuk.export')->middleware('auth:admin');
+
 Route::get('/admin/laporan/surat-keluar', 'LaporanController@LaporanKeluar')->name('admin.laporan-keluar')->middleware('auth:admin');
+Route::get('/admin/laporan/surat-keluar/export', 'LaporanController@KeluarExport')->name('admin.laporan-keluar.export')->middleware('auth:admin');
 
 Route::get('/admin/laporan/disposisi', 'LaporanController@LaporanDisposisi')->name('admin.laporan-disposisi')->middleware('auth:admin');
+
+Route::get('/admin/laporan/disposisi/export', 'LaporanController@DisposisiExport')->name('admin.laporan-disposisi.export')->middleware('auth:admin');
 
 //yang ini khusus test user dashboard view
 Route::get('/user', function () {
@@ -84,9 +89,16 @@ Route::get('/user/laporan', function () {
 
 Route::get('/user/laporan/surat-masuk', 'UserLaporanController@LaporanMasuk')->name('user.laporan-masuk')->middleware('auth');
 
+Route::get('/user/laporan/surat-masuk/export', 'UserLaporanController@MasukExport')->name('user.laporan-masuk.export')->middleware('auth');
+
+
 Route::get('/user/laporan/surat-keluar', 'UserLaporanController@LaporanKeluar')->name('user.laporan-keluar')->middleware('auth');
 
+Route::get('/user/laporan/surat-keluar/export', 'UserLaporanController@KeluarExport')->name('user.laporan-keluar.export')->middleware('auth');
+
 Route::get('/user/laporan/disposisi', 'UserLaporanController@LaporanDisposisi')->name('user.laporan-disposisi')->middleware('auth');
+
+Route::get('/user/laporan/disposisi/export', 'UserLaporanController@DisposisiExport')->name('user.laporan-disposisi.export')->middleware('auth');
 
 //KHUSUS SUPERADMIN VIEW
 

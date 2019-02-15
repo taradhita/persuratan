@@ -8,6 +8,11 @@ use Auth;
 use App\SuratMasuk;
 use App\SuratKeluar;
 use App\Disposisi;
+use Excel;
+use App\Exports\UserMasukExport;
+use App\Exports\UserKeluarExport;
+use App\Exports\UserDisposisiExport;
+
 
 class UserLaporanController extends Controller
 {
@@ -54,6 +59,19 @@ class UserLaporanController extends Controller
     					->get();
     	return view ('user-dashboard.laporan-disposisi', compact('disposisi', 'selectyear'));
     }
+
+    public function MasukExport(Request $request){
+        return Excel::download(new UserMasukExport($request->month, $request->year), 'laporan_masuk.xls');
+    }
+
+    public function KeluarExport(Request $request){
+        return Excel::download(new UserKeluarExport($request->month, $request->year), 'laporan_keluar.xls');
+    }
+
+    public function DisposisiExport(Request $request){
+        return Excel::download(new UserDisposisiExport($request->month, $request->year), 'laporan_disposisi.xls');
+    }
+
 
 
 }

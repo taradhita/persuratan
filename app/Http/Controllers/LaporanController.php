@@ -7,6 +7,10 @@ use DB;
 use App\SuratMasuk;
 use App\SuratKeluar;
 use App\Disposisi;
+use Excel;
+use App\Exports\MasukExport;
+use App\Exports\KeluarExport;
+use App\Exports\DisposisiExport;
 
 class LaporanController extends Controller
 {
@@ -15,10 +19,9 @@ class LaporanController extends Controller
     	$selectyear = SuratMasuk::groupBy('yr')->selectRaw('YEAR(tanggal) as yr')->get();
     	$month = $request->month;
     	$year = $request->year;
-    	$suratMasuk = DB::table('detail_surat')
-    					->join('surat_masuk', 'surat_masuk.id', '=', 'detail_surat.id_surat')
-    					->join('users', 'users.id', '=','detail_surat.id_tujuan')
-    					->select('surat_masuk.id as id', 'surat_masuk.no_surat as no_surat', 'surat_masuk.tanggal as tanggal', 'surat_masuk.asal_surat as asal_surat', 'users.nama_seksi as tujuan', 'surat_masuk.perihal as perihal', 'surat_masuk.file_surat as file_surat', 'surat_masuk.status as status')
+    	$suratMasuk = DB::table('surat_masuk')
+    
+    					->select('surat_masuk.id as id', 'surat_masuk.no_surat as no_surat', 'surat_masuk.tanggal as tanggal', 'surat_masuk.asal_surat as asal_surat', 'surat_masuk.perihal as perihal', 'surat_masuk.file_surat as file_surat', 'surat_masuk.status as status')
     					->whereMonth('surat_masuk.tanggal', '=', $month)
     					->whereYear('surat_masuk.tanggal', '=', $year)
     					->get();
@@ -47,6 +50,18 @@ class LaporanController extends Controller
     					->whereYear('disposisi.tanggal_disposisi', '=', $year)
     					->get();
     	return view ('admin.admin-dashboard.laporan-disposisi', compact('disposisi', 'selectyear'));
+    }
+
+    public function MasukExport(Request $request){
+        return Excel::download(new MasukExport($request->month, $request->year), 'laporan_masuk.xls');
+    }
+
+    public function KeluarExport(Request $request){
+        return Excel::download(new KeluarExport($request->month, $request->year), 'laporan_keluar.xls');
+    }
+
+    public function DisposisiExport(Request $request){
+        return Excel::download(new DisposisiExport($request->month, $request->year), 'laporan_disposisi.xls');
     }
 
 }
