@@ -5,8 +5,9 @@ namespace App\Exports;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Auth;
 use App\Disposisi;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class UserDisposisiExport implements FromQuery
+class UserDisposisiExport implements FromQuery, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -24,5 +25,18 @@ class UserDisposisiExport implements FromQuery
     					->where('disposisi.tujuan_disposisi','=',Auth::id())
     					->whereMonth('disposisi.tanggal_disposisi', '=', $this->month)
     					->whereYear('disposisi.tanggal_disposisi', '=', $this->year);
+    }
+    public function headings(): array
+    {
+        return [
+            '#',
+            'No Disposisi',
+            'Tanggal Disposisi',
+            'Tujuan Disposisi',
+            'File Surat',
+            'Note',
+            'Created At',
+            'Updated At'
+        ];
     }
 }

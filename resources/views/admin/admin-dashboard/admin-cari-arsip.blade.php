@@ -10,7 +10,7 @@
                     <p class="card-category">Seksi <b style="color: black">{{$seksi}}</b></p>
                 </div>
                 <div class="card-body">
-                    <form action="detail/search" method="get">
+                    <form action="search" method="get">
                         <label>Search by date</label>
                         <div class="input-group">
                             <input type="hidden" name="seksi" value="{{$seksi}}">

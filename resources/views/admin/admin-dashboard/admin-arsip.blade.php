@@ -38,7 +38,7 @@
                                         <div class="col-8 d-flex align-items-center">
                                             <div class="numbers">
                                                 <p class="card-category">Seksi</p>
-                                                <a href="/" class="card-title">Hubungan Hukum Pertanahan </a>
+                                                <a href="{{route('arsip.detail',['seksi' => 'Hubungan Hukum Pertanahan'])}}" class="card-title">Hubungan Hukum Pertanahan </a>
                                             </div>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@
                                         <div class="col-8 d-flex align-items-center">
                                             <div class="numbers">
                                                 <p class="card-category">Seksi</p>
-                                                <a href="/" class="card-title">Penataan Pertanahan</a>
+                                                <a href="{{route('arsip.detail',['seksi' => 'Penataan Pertanahan'])}}" class="card-title">Penataan Pertanahan</a>
                                             </div>
                                         </div>
                                     </div>
@@ -72,7 +72,7 @@
                                         <div class="col-8 d-flex align-items-center">
                                             <div class="numbers">
                                                 <p class="card-category">Seksi</p>
-                                                <a href="/" class="card-title">Pengadaan Tanah</a>
+                                                <a href="{{route('arsip.detail',['seksi' => 'Pengadaan Tanah'])}}" class="card-title">Pengadaan Tanah</a>
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                                         <div class="col-8 d-flex align-items-center">
                                             <div class="numbers">
                                                 <p class="card-category">Seksi</p>
-                                                <a href="/" class="card-title">Pengendalian Masalah dan Pengendalian
+                                                <a href="{{route('arsip.detail',['seksi' => 'Pengendalian Masalah dan Pengendalian Pertanahan'])}}" class="card-title">Pengendalian Masalah dan Pengendalian
                                                     Pertanahan</a>
                                             </div>
                                         </div>
@@ -107,7 +107,7 @@
                                         <div class="col-8 d-flex align-items-center">
                                             <div class="numbers">
                                                 <p class="card-category"></p>
-                                                <a href="/" class="card-title">Tata Usaha</a>
+                                                <a href="{{route('arsip.detail',['seksi' => 'TU'])}}" class="card-title">Tata Usaha</a>
                                             </div>
                                         </div>
                                     </div>

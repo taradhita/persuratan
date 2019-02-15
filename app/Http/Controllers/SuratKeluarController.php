@@ -11,7 +11,7 @@ use App\Notifications\SuratKeluarNotif;
 class SuratKeluarController extends Controller
 {
     public function index(){
-		$suratkeluar = SuratKeluar::orderBy('id', 'desc')->paginate(15);
+		$suratkeluar = SuratKeluar::where('asal_surat','=',Auth::id())->orderBy('id', 'desc')->paginate(15);
     	return view('user-dashboard.user-surat-keluar',compact('suratkeluar'));
     }
 

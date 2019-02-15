@@ -5,8 +5,9 @@ namespace App\Exports;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use App\SuratKeluar;
 use Auth;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class UserKeluarExport implements FromQuery
+class UserKeluarExport implements FromQuery,WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -26,5 +27,20 @@ class UserKeluarExport implements FromQuery
     					->whereMonth('surat_keluar.tanggal', '=', $this->month)
     					->whereYear('surat_keluar.tanggal', '=', $this->year);
     	}
+
+         public function headings(): array
+        {
+        return [
+            '#',
+            'No Surat',
+            'Tanggal Keluar',
+            'Tujuan Surat',
+            'Asal Surat',
+            'Perihal',
+            'File Surat',
+            'Created At',
+            'Updated At',
+        ];
+        }
 
 }

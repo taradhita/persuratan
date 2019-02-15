@@ -81,7 +81,7 @@
 										@csrf
 										{{ method_field('PUT') }}
 										<input type="submit" class="btn btn-success" name="status" value="Terima"></input>
-										<input type="submit" class="btn btn-danger" name="status" value="Tolak"></input>
+										<!--<input type="submit" class="btn btn-danger" name="status" value="Tolak"></input>-->
 									</form>
 									@else
 									@endif
